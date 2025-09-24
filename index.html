@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadWax - Forex Trading Solutions</title>
+    
+     <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="LeadWax | Professional Forex Signals & Mentorship">
+    <meta name="description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
+    <meta name="keywords" content="forex, forex signals, forex trading, trading, mentorship, currency trading, education, financial freedom, forex academy, trader">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leadwaxfx.vercel.app/preview.png">
+    <meta property="og:title" content="LeadWax | Professional Forex Signals & Mentorship">
+    <meta property="og:description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
+    <meta property="og:image" content="https://leadwaxfx.vercel.app/preview.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://leadwaxfx.vercel.app/">
+    <meta name="twitter:title" content="LeadWax | Professional Forex Signals & Mentorship">
+    <meta name="twitter:description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
+    <meta name="twitter:image" content="https://leadwaxfx.vercel.app/preview.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-gradient-gold {
+            background-image: linear-gradient(to right, #FFD700, #DAA520);
+        }
+        .text-gold {
+            color: #FFD700;
+		}
+        .text-gradient-gold {
+            background-image: linear-gradient(to right, #FFD700, #DAA520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+        
+        /* Custom Keyframes for Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+        
+        /* Custom animations for scroll reveal */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+	<a href="#home" class="flex items-center space-x-2">
+		<h1 class="text-2xl font-bold tracking-wide text-white">
+			LEAD<span class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-light">WAX</span>
+		</h1>
+
+	</a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="#home" class="hover:text-gold-500 transition-colors">Home</a>
+                <a href="#about" class="hover:text-gold-500 transition-colors">About</a>
+                <a href="#services" class="hover:text-gold-500 transition-colors">Services</a>
+                <a href="#blog" class="hover:text-gold-500 transition-colors">Blog</a>
+                <a href="#contact" class="hover:text-gold-500 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-gold-500 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90 pt-4 pb-2">
+            <nav class="flex flex-col items-center space-y-2 text-sm font-semibold">
+                <a href="#home" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Home</a>
+                <a href="#about" class="py-2 hover:text-gold-500 transition-colors w-full text-center">About</a>
+                <a href="#services" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Services</a>
+                <a href="#blog" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Blog</a>
+                <a href="#contact" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Page Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center p-8 text-center pt-24">
+            <!-- Background overlay with a touch of gold -->
+            <div class="absolute inset-0 bg-black/90"></div>
+            <div class="relative z-10 max-w-4xl mx-auto fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+                    <span class="text-gradient-gold">Navigate the Markets with Confidence</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Global FX provides professional forex signals, mentorship, and resources to help you achieve financial independence.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#services" class="bg-gradient-gold text-black font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-gold-500/50 transition-shadow">Explore Our Services</a>
+                    <a href="#contact" class="text-gold-500 border border-gold-500 font-semibold py-3 px-8 rounded-full hover:bg-gold-500 hover:text-black transition-colors">Get in Touch</a>
+                </div>
+                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 fade-in fade-in-delay-1">
+                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                        <i class="fas fa-signal text-3xl text-gold-500 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Exclusive Signals</h3>
+                        <p class="text-gray-400 text-sm">Real-time trading signals from expert analysts.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                        <i class="fas fa-graduation-cap text-3xl text-gold-500 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Academy</h3>
+                        <p class="text-gray-400 text-sm">Comprehensive lessons for all skill levels.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                        <i class="fas fa-handshake text-3xl text-gold-500 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Personal Mentorship</h3>
+                        <p class="text-gray-400 text-sm">One-on-one guidance to accelerate your growth.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                        <i class="fas fa-users-gear text-3xl text-gold-500 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Affiliate Program</h3>
+                        <p class="text-gray-400 text-sm">Partner with us and earn passive income.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Market Data & Chart Section -->
+        <section class="py-8 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="overflow-hidden whitespace-nowrap py-2">
+                    <div class="inline-block animate-marquee text-lg font-bold">
+                        <span class="px-6 text-gray-400">EUR/USD: <span class="text-green-500">1.0850</span></span>
+                        <span class="px-6 text-gray-400">GBP/JPY: <span class="text-red-500">182.34</span></span>
+                        <span class="px-6 text-gray-400">AUD/CAD: <span class="text-green-500">0.8921</span></span>
+                        <span class="px-6 text-gray-400">USD/CHF: <span class="text-green-500">0.9125</span></span>
+                        <span class="px-6 text-gray-400">EUR/USD: <span class="text-green-500">1.0850</span></span>
+                        <span class="px-6 text-gray-400">GBP/JPY: <span class="text-red-500">182.34</span></span>
+                        <span class="px-6 text-gray-400">AUD/CAD: <span class="text-green-500">0.8921</span></span>
+                        <span class="px-6 text-gray-400">USD/CHF: <span class="text-green-500">0.9125</span></span>
+                    </div>
+                </div>
+                <div class="mt-8 rounded-xl overflow-hidden shadow-2xl fade-in fade-in-delay-1">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container" style="height:400px; width:100%;">
+                        <iframe scrolling="no" allowfullscreen frameborder="0" style="height:100%; width:100%;"
+                            src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=FX_IDC%3AEURUSD&interval=D&toolbar_bg=%23f1f3f6&locale=en&range=12m&allow_embed_in_clipboard=1&details=false&studies=%5B%5D&theme=dark&style=1&timezone=Europe%2FLondon&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&referral_id=2557&container_id=tradingview_widget">
+                        </iframe>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page Section -->
+        <section id="about" class="py-20 px-8">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Our Story</h2>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        We believe that success in forex is not just about signals, but about a deep understanding of the market. Our journey began with a passion for trading and a desire to make financial education accessible to everyone.
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12 fade-in fade-in-delay-1">
+                    <div class="md:w-1/2">
+                        <img src="1.jpg" alt="A professional forex trader at work" class="rounded-xl shadow-2xl">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-gold-500 mb-4">Expertise and Proof</h3>
+                        <p class="text-gray-400 mb-6">
+                            With over a decade of experience in the forex market, our lead analyst has a proven track record of consistent results. Our methodology is built on a blend of technical analysis and fundamental insights, ensuring every trade is backed by a solid strategy. We don't just provide signals; we teach you how to analyze the market yourself.
+                        </p>
+                        <h4 class="text-xl font-bold mb-4">What Our Clients Say</h4>
+                        <div class="space-y-6">
+                            <blockquote class="p-6 bg-gray-800/50 rounded-lg shadow-xl border-l-4 border-gold-500">
+                                <p class="text-gray-300 italic mb-2">"The mentorship program completely changed my trading journey. The personalized guidance and in-depth lessons were invaluable. My results have never been better!"</p>
+                                <footer class="text-right text-sm font-semibold text-gold-500">— Sarah K., Mentorship Client</footer>
+                            </blockquote>
+                            <blockquote class="p-6 bg-gray-800/50 rounded-lg shadow-xl border-l-4 border-gold-500">
+                                <p class="text-gray-300 italic mb-2">"The signal group is fantastic. The accuracy is impressive, and the explanations for each trade help me learn as I earn. Highly recommend!"</p>
+                                <footer class="text-right text-sm font-semibold text-gold-500">— Michael O., Signals Group Member</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Why Choose Us Section -->
+            <div class="mt-20 px-8 fade-in fade-in-delay-2">
+                <div class="container mx-auto max-w-6xl text-center">
+                    <h3 class="text-4xl font-bold mb-12 text-gradient-gold">Why Choose Us?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                            <i class="fas fa-lock text-5xl text-gold-500 mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Transparency & Trust</h4>
+                            <p class="text-gray-400">We provide transparent results and clear explanations for every trading decision, so you know exactly what you’re getting.</p>
+                        </div>
+                        <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                            <i class="fas fa-chart-line text-5xl text-gold-500 mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Expert-Led Strategies</h4>
+                            <p class="text-gray-400">Our team consists of seasoned analysts with a proven track record of navigating complex market conditions.</p>
+                        </div>
+                        <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
+                            <i class="fas fa-user-gear text-5xl text-gold-500 mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Tailored for You</h4>
+                            <p class="text-gray-400">Whether you're a complete beginner or a seasoned professional, our services are designed to meet your specific needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page Section -->
+        <section id="services" class="py-20 px-8 bg-gray-900">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Our Services</h2>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        Choose the solution that fits your trading style and goals. Whether you are a beginner or an experienced trader, we have a plan for you.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in fade-in-delay-1">
+                    <!-- Service 1: Signal Group -->
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
+                        <img src="9.jpg" alt="Forex signal group" class="w-full h-48 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Signal Group</h3>
+                            <p class="text-gray-400 mb-6">
+                                Join our exclusive Telegram group for daily, high-quality forex signals. We provide entry, stop-loss, and take-profit levels with detailed analysis for each trade.
+                            </p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Daily Signals</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Full Analysis Provided</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> 24/7 Member Support</li>
+                            </ul>
+                            <a href="#payment" class="bg-gradient-gold text-black font-semibold py-3 px-6 rounded-full w-full block text-center hover:shadow-lg transition-shadow">Join Now</a>
+                        </div>
+                    </div>
+                    <!-- Service 2: Mentorship -->
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
+                        <img src="3.jpg" alt="Forex mentorship program" class="w-full h-48 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Personal Mentorship</h3>
+                            <p class="text-gray-400 mb-6">
+                                Get personalized, one-on-one coaching to master your trading skills. From strategy development to risk management, we cover it all.
+                            </p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Custom Learning Plan</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Weekly Live Sessions</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Trading Psychology</li>
+                            </ul>
+                            <a href="#payment" class="bg-gradient-gold text-black font-semibold py-3 px-6 rounded-full w-full block text-center hover:shadow-lg transition-shadow">Book a Session</a>
+                        </div>
+                    </div>
+                    <!-- Service 3: Account Management -->
+                    <div class="bg-gray-800/50 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
+                        <img src="4.jpg" alt="Forex account management" class="w-full h-48 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Account Management</h3>
+                            <p class="text-gray-400 mb-6">
+                                Have our team of experts trade on your behalf. We handle all the trading, risk management, and profit-taking for you.
+                            </p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Passive Income</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Transparent Reporting</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Secure & Regulated</li>
+                            </ul>
+                            <a href="#contact" class="bg-gradient-gold text-black font-semibold py-3 px-6 rounded-full w-full block text-center hover:shadow-lg transition-shadow">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Live Trading Performance Tracker -->
+                <div class="mt-16 text-center bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-2">
+                    <h3 class="text-4xl font-bold text-gold-500 mb-4">Live Performance Tracker</h3>
+                    <p class="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
+                        Our commitment to transparency is reflected in our live performance. See the real-time results from our signal group.
+                    </p>
+                    <!-- This section would be dynamically populated by a backend API -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-2xl font-semibold">
+                        <div class="p-4 bg-gray-900 rounded-lg">
+                            <p class="text-gold-500 text-4xl font-bold">482+</p>
+                            <p class="text-sm text-gray-400">Pips Gained This Week</p>
+                        </div>
+                        <div class="p-4 bg-gray-900 rounded-lg">
+                            <p class="text-gold-500 text-4xl font-bold">85%</p>
+                            <p class="text-sm text-gray-400">Win Rate</p>
+                        </div>
+                        <div class="p-4 bg-gray-900 rounded-lg">
+                            <p class="text-gold-500 text-4xl font-bold">12</p>
+                            <p class="text-sm text-gray-400">Signals Posted</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-xs text-gray-500 italic">Note: Data is for illustrative purposes. Real-time data would be fetched from a dedicated API.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Page Section -->
+        <section id="payment" class="py-20 px-8 bg-black">
+            <div class="container mx-auto max-w-xl fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Secure Payments</h2>
+                    <p class="text-lg text-gray-400">
+                        Ready to get started? Fill out the form below to complete your payment.
+                    </p>
+                </div>
+                <!-- Payment Form -->
+                <div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl">
+                    <form id="paymentForm" class="space-y-6">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-400">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400">Email Address</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+                        </div>
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-400">Select Service</label>
+                            <select id="service" name="service" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-gold-500">
+                                <option value="">-- Choose a service --</option>
+                                <option value="signals">Signal Group</option>
+                                <option value="mentorship">Personal Mentorship</option>
+                                <option value="account-management">Account Management</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-gradient-gold text-black font-semibold py-3 px-12 rounded-full w-full hover:shadow-lg transition-shadow">Pay Now</button>
+                        </div>
+                    </form>
+                    <div id="paymentMessage" class="mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg hidden">
+                        <p>Thank you! Your payment has been received. A receipt has been sent to your email address.</p>
+                    </div>
+                    <!-- Note for the user on backend integration -->
+                    <div class="mt-4 text-center text-xs text-gray-500 italic">
+                        <p>Note: This form is a frontend placeholder. For actual payment processing with Selar or Paystack, a backend API is required to handle the transaction securely.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog/Resources Section -->
+        <section id="blog" class="py-20 px-8 bg-black">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Free Resources & Guides</h2>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        Learn the basics, discover new strategies, and stay updated with the latest market trends with our free educational content.
+                    </p>
+                </div>
+                <div class="space-y-16">
+                    <!-- Blog Post 1: 5 Essential Steps for a New Forex Trader -->
+                    <article class="bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-1">
+                        <div class="flex items-center mb-4 text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span class="text-sm">Posted on October 26, 2024</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gold-500 mb-4">5 Essential Steps for a New Forex Trader</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Starting your forex trading journey can be both exciting and intimidating. The key to success is not a secret strategy, but a solid foundation built on discipline, knowledge, and smart risk management. Here are five essential steps every new forex trader should take to set themselves up for success.
+                        </p>
+                        
+                        <!-- Full article content hidden by default -->
+                        <div id="full-post-1" class="hidden space-y-6 text-gray-300">
+                            <p><strong>1. Get to Know the Market.</strong> Before you place your first trade, it's crucial to understand what you're trading. Forex is the global market for exchanging currencies. You're not buying anything physical; you're betting on a currency pair's value fluctuating against another.</p>
+                            
+                            <p><strong>2. Create a Trading Plan.</strong> A trading plan is your roadmap. It should outline your goals, risk tolerance, strategy, and rules for entry and exit. A good plan will prevent emotional trading and keep you disciplined.</p>
+                            
+                            <p><strong>3. Practice with a Demo Account.</strong> A demo account is a simulation of the live market. It allows you to practice your strategies with virtual money, so you can make mistakes without losing real capital. This step is non-negotiable for beginners.</p>
+                            
+                            <p><strong>4. Start Small and Manage Risk.</strong> When you're ready to go live, start with a small amount of capital you're comfortable losing. Never risk more than 1-2% of your account on a single trade. This is the golden rule of risk management and the key to long-term survival in the market.</p>
+                            
+                            <p><strong>5. Keep a Trading Journal.</strong> A journal helps you track your trades, analyze your performance, and identify patterns in your behavior. It's the most effective tool for learning from your mistakes and improving your decision-making over time.</p>
+                        </div>
+                        <a href="#full-post-1" class="read-more-toggle mt-4 inline-block text-gold-500 font-semibold hover:underline" data-target="full-post-1">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 2: Mastering Risk Management -->
+                    <article class="bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-2">
+                        <div class="flex items-center mb-4 text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span class="text-sm">Posted on October 19, 2024</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gold-500 mb-4">Mastering Risk Management in Volatile Markets</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Risk management is the single most important skill in trading. Without it, even the most profitable strategies are doomed to fail. In volatile markets, where prices can change in an instant, a solid risk management plan isn't just an advantage—it's a necessity.
+                        </p>
+                        
+                        <div id="full-post-2" class="hidden space-y-6 text-gray-300">
+                            <p><strong>The Golden Rule: The 1% Rule.</strong> The most widely accepted risk management principle is to never risk more than 1% of your total account balance on a single trade. If you have a $1,000 account, your maximum loss on any given trade should be no more than $10.</p>
+                            
+                            <p><strong>Position Sizing.</strong> Proper position sizing goes hand-in-hand with the 1% rule. Your position size should be calculated based on your stop-loss and the 1% rule. For example, if your stop-loss is 50 pips and you're willing to lose $10, you should open a position size where a 50-pip loss equals $10.  This ensures you can sustain multiple losses without your account being wiped out.</p>
+                            
+                            <p><strong>Using Stop-Loss Orders.</strong> A stop-loss order is a mandatory tool. It automatically closes your trade when the price reaches a certain level, limiting your losses. Placing a stop-loss is an act of discipline; it removes emotion from the trade and protects your capital from unexpected market reversals.</p>
+                            
+                            <p><strong>Setting Take-Profit Levels.</strong> Just as a stop-loss protects you from losses, a take-profit order locks in your gains. It automatically closes a trade when it reaches a predetermined profit level. This helps you avoid getting greedy and ensures you capture your profits before the market turns against you.</p>
+                        </div>
+                        <a href="#full-post-2" class="read-more-toggle mt-4 inline-block text-gold-500 font-semibold hover:underline" data-target="full-post-2">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 3: The Power of Candlestick Patterns -->
+                    <article class="bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-3">
+                        <div class="flex items-center mb-4 text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span class="text-sm">Posted on October 12, 2024</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gold-500 mb-4">The Power of Candlestick Patterns</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Candlestick charts are a powerful tool for technical analysis. Unlike simple line charts, they provide a visual representation of price action over a period, offering insights into market sentiment and potential price reversals. Learning to read them is a fundamental skill for any serious trader.
+                        </p>
+                        
+                        <div id="full-post-3" class="hidden space-y-6 text-gray-300">
+                            <p><strong>What is a Candlestick?</strong> A single candlestick represents the open, high, low, and close price for a specific time frame. The main body of the candle shows the range between the open and close price, while the "wicks" or "shadows" show the high and low. A green (or hollow) candle indicates the price closed higher than it opened, while a red (or filled) candle means the price closed lower. 
+                            <img src="candle.png" alt="Forex candlestick chart" class="rounded-xl shadow-2xl mx-auto">
+							</p>
+                            
+                            <p><strong>Common Patterns to Look For.</strong>
+                            <ul>
+                                <li><strong>Doji:</strong> A candle with a very small body and long wicks. It indicates indecision in the market and often signals a potential reversal.</li>
+                                <li><strong>Hammer and Inverted Hammer:</strong> These are single-candle reversal patterns. A hammer has a small body at the top and a long lower wick, indicating sellers tried to push the price down but buyers pushed it back up. An inverted hammer is the opposite.</li>
+                                <li><strong>Engulfing Patterns:</strong> This is a two-candle pattern where the second candle's body completely "engulfs" the first candle's body. A bullish engulfing pattern can signal a strong reversal to the upside.</li>
+                                <li><strong>Morning and Evening Stars:</strong> These are three-candle patterns that signal a strong trend reversal. They are considered one of the most reliable candlestick patterns.</li>
+                            </ul>
+                            </p>
+                            
+                            <p>Understanding these patterns helps you anticipate market moves, but they should always be used in conjunction with other tools and indicators for confirmation. They are a piece of the puzzle, not the entire picture.</p>
+                        </div>
+                        <a href="#full-post-3" class="read-more-toggle mt-4 inline-block text-gold-500 font-semibold hover:underline" data-target="full-post-3">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page Section -->
+        <section id="contact" class="py-20 px-8">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Get in Touch</h2>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        Whether you have a question about our services or need assistance, we're here to help. Contact us via any of the channels below.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 fade-in fade-in-delay-1">
+                    <!-- Contact Form -->
+                    <div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-gold-500 mb-6">Send Us a Message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-400">Name</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+                            </div>
+                            <div>
+                                <label for="contactEmail" class="block text-sm font-medium text-gray-400">Email</label>
+                                <input type="email" id="contactEmail" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-400">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="bg-gradient-gold text-black font-semibold py-3 px-12 rounded-full w-full hover:shadow-lg transition-shadow">Send Message</button>
+                            </div>
+                        </form>
+                        <div id="contactMessage" class="mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg hidden">
+                            <p>Thank you! Your message has been sent successfully.</p>
+                        </div>
+                    </div>
+
+                    <!-- Socials and Other Contact Info -->
+                    <div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Connect Directly</h3>
+                            <ul class="space-y-4 text-gray-300">
+                                <li class="flex items-center space-x-4">
+                                    <i class="fas fa-envelope text-2xl text-gold-500"></i>
+                                    <span class="text-lg">hello@leadwax.com</span>
+                                </li>
+                                <li class="flex items-center space-x-4">
+                                    <i class="fab fa-telegram-plane text-2xl text-gold-500"></i>
+                                    <a href="#" target="_blank" class="text-lg hover:underline">@LeadWaxTelegram</a>
+                                </li>
+                                <li class="flex items-center space-x-4">
+                                    <i class="fab fa-whatsapp text-2xl text-gold-500"></i>
+                                    <a href="#" target="_blank" class="text-lg hover:underline">+1 (234) 1117-890</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Follow Us</h3>
+                            <div class="flex space-x-6 text-2xl">
+                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-instagram"></i></a>
+                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-8 text-center text-sm text-gray-500">
+        <p>&copy; 2025 LeadWax. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu, Forms, and Scroll Reveal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('nav a, #mobile-menu a');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Smooth Scroll
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Read More Toggle for Blog Posts
+            const readMoreToggles = document.querySelectorAll('.read-more-toggle');
+            readMoreToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const fullContent = document.getElementById(targetId);
+                    
+                    fullContent.classList.toggle('hidden');
+                    
+                    if (fullContent.classList.contains('hidden')) {
+                        this.innerHTML = `Read More <i class="fas fa-arrow-right ml-1"></i>`;
+                    } else {
+                        this.innerHTML = `Read Less <i class="fas fa-arrow-up ml-1"></i>`;
+                    }
+                });
+            });
+
+            // Handle Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            const contactMessage = document.getElementById('contactMessage');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                contactMessage.classList.remove('hidden');
+                // Backend integration would be here.
+                contactForm.reset();
+                setTimeout(() => {
+                    contactMessage.classList.add('hidden');
+                }, 5000); // Hide message after 5 seconds
+            });
+
+            // Handle Payment Form Submission
+            const paymentForm = document.getElementById('paymentForm');
+            const paymentMessage = document.getElementById('paymentMessage');
+            if (paymentForm) {
+                paymentForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    paymentMessage.classList.remove('hidden');
+                    // Backend integration with Selar/Paystack here.
+                    paymentForm.reset();
+                    setTimeout(() => {
+                        paymentMessage.classList.add('hidden');
+                    }, 5000); // Hide message after 5 seconds
+                });
+            }
+
+            // Scroll Reveal Animation with IntersectionObserver
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
