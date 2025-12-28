@@ -343,38 +343,47 @@
                     </p>
                 </div>
                 <!-- Payment Form -->
-                <div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl">
-                    <form id="paymentForm" class="space-y-6">
-                        <div>
-                            <label for="fullName" class="block text-sm font-medium text-gray-400">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-400">Email Address</label>
-                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                        </div>
-                        <div>
-                            <label for="service" class="block text-sm font-medium text-gray-400">Select Service</label>
-                            <select id="service" name="service" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-gold-500">
-                                <option value="">-- Choose a service --</option>
-                                <option value="signals">Signal Group</option>
-                                <option value="mentorship">Personal Mentorship</option>
-                                <option value="account-management">Account Management</option>
-                            </select>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-gradient-gold text-black font-semibold py-3 px-12 rounded-full w-full hover:shadow-lg transition-shadow">Pay Now</button>
-                        </div>
-                    </form>
-                    <div id="paymentMessage" class="mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg hidden">
-                        <p>Thank you! Your payment has been received. A receipt has been sent to your email address.</p>
-                    </div>
-                    <!-- Note for the user on backend integration -->
-                    <div class="mt-4 text-center text-xs text-gray-500 italic">
-                        <p>Note: This form is a frontend placeholder. For actual payment processing with Selar or Paystack, a backend API is required to handle the transaction securely.</p>
-                    </div>
-                </div>
-            </div>
+				<div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl">
+				  <form id="paymentForm" class="space-y-6">
+					<div>
+					  <label for="fullName" class="block text-sm font-medium text-gray-400">Full Name</label>
+					  <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+					</div>
+					<div>
+					  <label for="email" class="block text-sm font-medium text-gray-400">Email Address</label>
+					  <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+					</div>
+					<div>
+					  <label for="phone" class="block text-sm font-medium text-gray-400">Phone (optional)</label>
+					  <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
+					</div>
+					<div>
+					  <label for="service" class="block text-sm font-medium text-gray-400">Select Service</label>
+					  <select id="service" name="service" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-gold-500">
+						<option value="">-- Choose a service --</option>
+						<option value="signals">Signal Group</option>
+						<option value="mentorship">Personal Mentorship</option>
+						<option value="account-management">Account Management</option>
+					  </select>
+					</div>
+
+					<div>
+					  <p id="priceDisplay" class="text-center text-gray-300 font-semibold">Price: ₦0</p>
+					</div>
+
+					<div class="text-center">
+					  <button id="payNowBtn" type="submit" class="bg-gradient-gold text-black font-semibold py-3 px-12 rounded-full w-full hover:shadow-lg transition-shadow">Pay Now</button>
+					</div>
+				  </form>
+
+				  <div id="paymentMessage" class="mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg hidden">
+					<p id="paymentMessageText">Thank you! Processing your payment…</p>
+				  </div>
+
+				  <div class="mt-4 text-center text-xs text-gray-500 italic">
+					<p>Note: This form uses Paystack via a secure backend for verification.</p>
+				  </div>
+				</div>
         </section>
 
         <!-- Blog/Resources Section -->
@@ -550,6 +559,7 @@
     </footer>
 
     <!-- JavaScript for Mobile Menu, Forms, and Scroll Reveal -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle
@@ -594,19 +604,161 @@
                     }
                 });
             });
+            
+					(function(){
+			// Service pricing (NGN)
+			const prices = {
+			  'signals': 500,
+			  'mentorship': 25000,
+			  'account-management': 100000
+			};
 
-            // Handle Contact Form Submission
-            const contactForm = document.getElementById('contactForm');
-            const contactMessage = document.getElementById('contactMessage');
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                contactMessage.classList.remove('hidden');
-                // Backend integration would be here.
-                contactForm.reset();
-                setTimeout(() => {
-                    contactMessage.classList.add('hidden');
-                }, 5000); // Hide message after 5 seconds
-            });
+			const serviceSelect = document.getElementById('service');
+			const priceDisplay = document.getElementById('priceDisplay');
+			const paymentForm = document.getElementById('paymentForm');
+			const paymentMessage = document.getElementById('paymentMessage');
+			const paymentMessageText = document.getElementById('paymentMessageText');
+
+			const PUBLIC_KEY = "pk_test_836795a935d7048f4b8291936a858f2491e36364";
+			const BACKEND_VERIFY_URL = "https://leadwax-backend.onrender.com/verify-payment";
+
+
+			// Update price on service change
+			serviceSelect.addEventListener('change', () => {
+			  const selected = serviceSelect.value;
+			  const p = prices[selected] || 0;
+			  priceDisplay.textContent = `Price: ₦${p.toLocaleString()}`;
+			});
+
+			// Submit handler: open Paystack inline
+			paymentForm.addEventListener('submit', function(e){
+			  e.preventDefault();
+			  const name = document.getElementById('name').value.trim();
+			  const email = document.getElementById('email').value.trim();
+			  const phone = document.getElementById('phone').value.trim();
+			  const service = serviceSelect.value;
+
+			  if (!name || !email || !service) {
+				alert('Please fill name, email, and select a service.');
+				return;
+			  }
+
+			  const amountNGN = prices[service];
+			  if (!amountNGN) {
+				alert('Please select a valid service.');
+				return;
+			  }
+
+			  // show processing message
+			  paymentMessage.classList.remove('hidden');
+			  paymentMessageText.textContent = 'Opening secure payment...';
+
+			  const handler = PaystackPop.setup({
+				key: PUBLIC_KEY,
+				email: email,
+				amount: amountNGN * 100, 
+				currency: "NGN",
+				metadata: {
+				  custom_fields: [
+					{display_name: "Full Name", variable_name: "full_name", value: name},
+					{display_name: "Phone", variable_name: "phone", value: phone || ''}
+				  ]
+				},
+				callback: function(response){
+				  // response.reference available — verify on backend
+				  paymentMessage.classList.remove('hidden');
+				  paymentMessageText.textContent = 'Payment made. Verifying...';
+				  fetch(BACKEND_VERIFY_URL, {
+					method: 'POST',
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify({
+					  reference: response.reference,
+					  user: { name, email, phone, service }
+					})
+				  })
+				.then(r => r.json())
+				.then(data => {
+					console.log("Verify response:", data); 
+				if (data.success) {
+					paymentMessage.classList.remove('hidden');
+				  paymentMessageText.textContent = '✅ Payment confirmed! Redirecting you to our Telegram...';
+				  
+				  // Wait 2 seconds before redirect
+				  setTimeout(() => {
+					if (data.redirect) {
+					  window.location.href = data.redirect;
+					}
+				  }, 2000);
+				} else {
+					paymentMessage.classList.remove('hidden');
+				  paymentMessageText.textContent = 'Verification failed: ' + (data.message || 'Contact support.');
+				}
+
+				})
+
+				  .catch(err => {
+					console.error(err);
+					paymentMessage.classList.remove('hidden');
+					paymentMessageText.textContent = 'Verification error. Contact support.';
+				  });
+				},
+				onClose: function(){
+					paymentMessage.classList.remove('hidden');
+				  paymentMessageText.textContent = 'Payment window closed. If you completed payment, please check email or contact support.';
+				}
+			  });
+			  handler.openIframe();
+			});
+            })();
+
+           // Handle Contact Form Submission
+			const contactForm = document.getElementById('contactForm');
+			const contactMessage = document.getElementById('contactMessage');
+
+			// Set your contact sheet webhook here
+			const CONTACT_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzh2R08CwoPsCxcnGnWtYk3hGV5YDtD0TDtqmxMoKiwCdikWhM9Wd3uFPdegbDO7EXFZg/exec';
+
+			contactForm.addEventListener('submit', async function(event) {
+				event.preventDefault();
+
+				// Collect form data
+				const formData = {
+					name: contactForm.name.value.trim(),
+					email: contactForm.email.value.trim(),
+					message: contactForm.message.value.trim(),
+					timestamp: new Date().toISOString()
+				};
+
+				try {
+					// Send data to your Contact Google Sheet via Apps Script
+					const response = await fetch(CONTACT_SHEET_WEBHOOK, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(formData)
+					});
+
+					const result = await response.json();
+
+					if (result.status === 'success') {
+						contactMessage.textContent = 'Message sent successfully!';
+						contactMessage.classList.remove('hidden');
+						contactForm.reset();
+					} else {
+						contactMessage.textContent = 'Oops! Something went wrong. Try again.';
+						contactMessage.classList.remove('hidden');
+						console.error('Sheet Error:', result.message);
+					}
+
+				} catch (err) {
+					contactMessage.textContent = 'Network error. Please try again later.';
+					contactMessage.classList.remove('hidden');
+					console.error('Fetch Error:', err);
+				}
+
+				setTimeout(() => {
+					contactMessage.classList.add('hidden');
+				}, 5000);
+			});
 
             // Handle Payment Form Submission
             const paymentForm = document.getElementById('paymentForm');
@@ -643,6 +795,8 @@
                 observer.observe(el);
             });
         });
+        
+        
     </script>
 </body>
 </html>
