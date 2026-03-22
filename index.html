@@ -1,802 +1,1265 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadWax - Forex Trading Solutions</title>
-    
-     <!-- Primary SEO Meta Tags -->
-    <meta name="title" content="LeadWax | Professional Forex Signals & Mentorship">
-    <meta name="description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
-    <meta name="keywords" content="forex, forex signals, forex trading, trading, mentorship, currency trading, education, financial freedom, forex academy, trader">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeadWax | Professional Forex Signals & Mentorship</title>
+<meta name="description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
+<meta property="og:title" content="LeadWax | Professional Forex Signals & Mentorship">
+<meta property="og:description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources.">
+<meta property="og:image" content="https://leadwaxfx.vercel.app/show.png">
+<meta property="og:url" content="https://leadwaxfx.vercel.app/">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://leadwaxfx.vercel.app/">
-    <meta property="og:title" content="LeadWax | Professional Forex Signals & Mentorship">
-    <meta property="og:description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
-    <meta property="og:image" content="https://leadwaxfx.vercel.app/show.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://leadwaxfx.vercel.app/">
-    <meta name="twitter:title" content="LeadWax | Professional Forex Signals & Mentorship">
-    <meta name="twitter:description" content="LeadWax provides professional forex signals, personal mentorship, and comprehensive educational resources to help you achieve financial independence.">
-    <meta name="twitter:image" content="https://leadwaxfx.vercel.app/show.png">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .bg-gradient-gold {
-            background-image: linear-gradient(to right, #FFD700, #DAA520);
-        }
-        .text-gold {
-            color: #FFD700;
-		}
-        .text-gradient-gold {
-            background-image: linear-gradient(to right, #FFD700, #DAA520);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Custom scrollbar for a sleek look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #222;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #333;
-        }
-        
-        /* Custom Keyframes for Marquee */
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .animate-marquee {
-            animation: marquee 20s linear infinite;
-        }
-        
-        /* Custom animations for scroll reveal */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-in-delay-1 {
-            transition-delay: 0.1s;
-        }
-        .fade-in-delay-2 {
-            transition-delay: 0.2s;
-        }
-        .fade-in-delay-3 {
-            transition-delay: 0.3s;
-        }
-    </style>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --ink:       #0d0c0a;
+    --ink-2:     #1a1814;
+    --ink-3:     #242220;
+    --paper:     #f5f0e8;
+    --paper-2:   #ede8dc;
+    --gold:      #b8922a;
+    --gold-lt:   #d4a843;
+    --gold-pale: rgba(184,146,42,0.12);
+    --muted:     #7a7060;
+    --dim:       #4a4438;
+    --rule:      rgba(184,146,42,0.2);
+    --border:    rgba(255,255,255,0.06);
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'Instrument Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+    font-family: var(--sans);
+    background: var(--ink);
+    color: #e8e2d4;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── GRAIN TEXTURE ─── */
+body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 9998;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.055'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+/* ─── CUSTOM CURSOR ─── */
+* { cursor: none !important; }
+#cursor {
+    position: fixed; width: 8px; height: 8px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+    mix-blend-mode: difference;
+}
+#cursor-ring {
+    position: fixed; width: 32px; height: 32px;
+    border: 1px solid rgba(184,146,42,0.5);
+    border-radius: 50%; pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.12s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--gold); opacity: 0.4; }
+
+/* ─── HEADER ─── */
+header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+    padding: 28px 0;
+    transition: padding 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+    border-bottom: 1px solid transparent;
+}
+header.stuck {
+    padding: 18px 0;
+    background: rgba(13,12,10,0.94);
+    backdrop-filter: blur(24px);
+    border-bottom-color: var(--rule);
+}
+.nav-wrap {
+    max-width: 1380px; margin: 0 auto;
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+    font-family: var(--serif);
+    font-size: 26px; font-weight: 300;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #e8e2d4; text-decoration: none;
+    display: flex; align-items: baseline; gap: 0;
+}
+.logo em {
+    font-style: italic;
+    color: var(--gold-lt);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+.nav-links {
+    display: flex; align-items: center; gap: 40px;
+}
+.nav-links a {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    position: relative; transition: color 0.25s;
+}
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+}
+.nav-links a:hover { color: #e8e2d4; }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink) !important;
+    background: var(--gold);
+    padding: 11px 26px;
+    text-decoration: none;
+    transition: background 0.2s, letter-spacing 0.2s;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--gold-lt); letter-spacing: 0.18em; }
+#menu-btn { display: none; background: none; border: none; color: #e8e2d4; font-size: 18px; }
+#mob-menu {
+    display: none; position: fixed; inset: 0; z-index: 800;
+    background: var(--ink); flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+}
+#mob-menu.open { display: flex; }
+#mob-menu a {
+    font-family: var(--serif); font-size: 40px; font-weight: 300; font-style: italic;
+    color: #e8e2d4; text-decoration: none; letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+#mob-menu a:hover { color: var(--gold-lt); }
+#mob-close { position: absolute; top: 28px; right: 48px; background: none; border: none; color: var(--muted); font-size: 20px; }
+
+/* ─── TYPOGRAPHY HELPERS ─── */
+.label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); display: flex; align-items: center; gap: 12px;
+}
+.label::before { content: ''; width: 24px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.display {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 68px);
+    font-weight: 300; line-height: 1.0;
+    letter-spacing: -0.02em;
+}
+.display em { font-style: italic; color: var(--gold-lt); }
+.subhead {
+    font-family: var(--serif); font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 300; line-height: 1.15; letter-spacing: -0.01em;
+}
+.subhead em { font-style: italic; color: var(--gold-lt); }
+.body-text {
+    font-size: 15px; line-height: 1.75; color: var(--muted); font-weight: 400;
+}
+.rule-line {
+    border: none; border-top: 1px solid var(--rule); margin: 0;
+}
+
+/* ─── SECTION BASE ─── */
+section { position: relative; }
+.wrap { max-width: 1380px; margin: 0 auto; padding: 0 48px; }
+.wrap-narrow { max-width: 960px; margin: 0 auto; padding: 0 48px; }
+
+/* ─── REVEAL ─── */
+.r { opacity: 0; transform: translateY(32px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.r.on { opacity: 1; transform: none; }
+.r.d1 { transition-delay: 0.1s; }
+.r.d2 { transition-delay: 0.2s; }
+.r.d3 { transition-delay: 0.3s; }
+.r.d4 { transition-delay: 0.45s; }
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+#home {
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+}
+.hero-body {
+    padding: 140px 48px 60px;
+    max-width: 1380px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start;
+}
+/* Decorative vertical rule */
+.hero-body::before {
+    content: '';
+    position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
+    pointer-events: none;
+}
+.hero-num {
+    font-family: var(--serif);
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.18em; color: var(--dim);
+    margin-bottom: 24px;
+}
+.hero-left { padding-bottom: 16px; }
+.hero-eyebrow { margin-bottom: 20px; }
+.hero-h1 { margin-bottom: 20px; }
+.hero-desc {
+    max-width: 480px; margin-bottom: 28px;
+}
+.hero-actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.btn-fill {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--gold); color: var(--ink);
+    padding: 16px 36px; text-decoration: none;
+    transition: background 0.2s, letter-spacing 0.2s;
+}
+.btn-fill:hover { background: var(--gold-lt); letter-spacing: 0.2em; }
+.btn-text {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.2s, gap 0.2s;
+}
+.btn-text:hover { color: #e8e2d4; gap: 16px; }
+.btn-text i { font-size: 10px; }
+
+/* hero right — stat panel */
+.hero-right {
+    display: flex; flex-direction: column; gap: 1px;
+    border-left: 1px solid var(--rule);
+    padding-left: 48px; padding-bottom: 16px;
+}
+.stat-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: baseline;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-fig {
+    font-family: var(--serif);
+    font-size: 36px; font-weight: 300;
+    color: var(--gold-lt); line-height: 1;
+    letter-spacing: -0.02em;
+}
+.stat-lbl {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--dim); text-align: right;
+    max-width: 120px; line-height: 1.4;
+}
+
+/* hero bottom ticker */
+.hero-ticker {
+    border-top: 1px solid var(--rule);
+    overflow: hidden; background: var(--ink-2);
+}
+@keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-track {
+    display: flex; white-space: nowrap;
+    animation: tick 30s linear infinite;
+}
+.tick-item {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 40px;
+    border-right: 1px solid var(--rule);
+    font-size: 12px; color: var(--dim); letter-spacing: 0.06em;
+}
+.tick-pair { font-family: var(--serif); font-size: 14px; color: var(--muted); font-style: italic; }
+.tick-val { font-weight: 600; font-size: 12px; }
+.up   { color: #6fcf97; }
+.down { color: #eb5757; }
+.tick-arr { font-size: 10px; }
+
+/* ══════════════════════════════════════
+   CHART BAND
+══════════════════════════════════════ */
+.chart-band {
+    border-bottom: 1px solid var(--rule);
+}
+.chart-band .wrap { padding-top: 0; padding-bottom: 0; }
+.chart-label-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--rule);
+    max-width: 1380px; margin: 0 auto;
+}
+.chart-label-row .label { margin: 0; }
+.chart-note { font-size: 11px; color: var(--dim); letter-spacing: 0.08em; }
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+#about {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+}
+.about-grid {
+    display: grid; grid-template-columns: 220px 1fr 360px; gap: 0;
+}
+.about-index {
+    padding-right: 40px;
+    border-right: 1px solid var(--rule);
+}
+.about-index-num {
+    font-family: var(--serif);
+    font-size: 80px; font-weight: 300; line-height: 1;
+    color: var(--dim); display: block; margin-bottom: 32px;
+}
+.about-index ul {
+    list-style: none; display: flex; flex-direction: column; gap: 12px;
+}
+.about-index li {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--dim); display: flex; align-items: center; gap: 8px;
+}
+.about-index li::before { content: '—'; color: var(--gold); }
+.about-main { padding: 0 64px; }
+.about-main h2 { margin-bottom: 32px; }
+.about-main p { margin-bottom: 20px; }
+.about-sidebar {
+    border-left: 1px solid var(--rule);
+    padding-left: 40px;
+    display: flex; flex-direction: column; gap: 1px;
+}
+.quote-block {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+}
+.quote-block:last-child { border-bottom: none; }
+.quote-mark {
+    font-family: var(--serif); font-size: 40px; line-height: 0.5;
+    color: var(--gold); opacity: 0.4; margin-bottom: 12px; display: block;
+}
+.quote-block blockquote {
+    font-family: var(--serif); font-size: 17px; font-weight: 300;
+    font-style: italic; line-height: 1.6; color: #c8c0b0;
+    margin-bottom: 12px;
+}
+.quote-block cite {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); font-style: normal;
+}
+
+/* pillars */
+.pillars-row {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    border-top: 1px solid var(--rule);
+    margin-top: 80px;
+}
+.pillar {
+    padding: 40px 36px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+}
+.pillar:last-child { border-right: none; }
+.pillar-num {
+    font-family: var(--serif); font-size: 13px; font-style: italic;
+    color: var(--gold); margin-bottom: 20px; display: block;
+}
+.pillar h4 { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 10px; }
+.pillar p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ══════════════════════════════════════
+   SERVICES
+══════════════════════════════════════ */
+#services {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--ink-2);
+}
+.services-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+    margin-bottom: 72px;
+}
+.services-header-right .body-text { max-width: 420px; }
+.services-table { width: 100%; border-collapse: collapse; }
+.services-table tr { border-top: 1px solid var(--rule); transition: background 0.2s; }
+.services-table tr:hover { background: rgba(184,146,42,0.04); }
+.services-table td { padding: 32px 24px; vertical-align: top; }
+.svc-num { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--dim); width: 60px; }
+.svc-img { width: 100px; }
+.svc-img img { width: 88px; height: 66px; object-fit: cover; filter: grayscale(30%); display: block; }
+.svc-name { width: 220px; }
+.svc-name h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; margin-bottom: 6px; }
+.svc-name .tag {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+}
+.svc-desc { font-size: 13px; color: var(--muted); line-height: 1.65; max-width: 340px; }
+.svc-features { min-width: 200px; }
+.svc-features li {
+    font-size: 12px; color: var(--muted); padding: 3px 0;
+    display: flex; align-items: center; gap: 8px;
+}
+.svc-features li::before { content: '·'; color: var(--gold); font-size: 18px; line-height: 0; }
+.svc-action { text-align: right; white-space: nowrap; }
+.svc-action a {
+    display: inline-block;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 3px;
+    transition: color 0.2s, letter-spacing 0.2s;
+}
+.svc-action a:hover { color: var(--gold-lt); letter-spacing: 0.24em; }
+.perf-band {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    border-top: 1px solid var(--rule);
+    margin-top: 72px;
+}
+.perf-cell {
+    padding: 40px 36px;
+    border-right: 1px solid var(--rule);
+    text-align: center;
+}
+.perf-cell:last-child { border-right: none; }
+.perf-fig {
+    font-family: var(--serif); font-size: 64px; font-weight: 300; line-height: 1;
+    color: var(--gold-lt); letter-spacing: -0.03em; display: block; margin-bottom: 8px;
+}
+.perf-lbl {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--dim);
+}
+
+/* ══════════════════════════════════════
+   PAYMENT
+══════════════════════════════════════ */
+#payment {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+}
+.payment-layout {
+    display: grid; grid-template-columns: 1fr 520px; gap: 100px; align-items: start;
+}
+.payment-left .subhead { margin-bottom: 28px; }
+.payment-left .body-text { margin-bottom: 40px; }
+.trust-list { display: flex; flex-direction: column; gap: 0; }
+.trust-item {
+    display: flex; align-items: flex-start; gap: 20px;
+    padding: 20px 0; border-top: 1px solid var(--rule);
+}
+.trust-item:last-child { border-bottom: 1px solid var(--rule); }
+.trust-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--rule); color: var(--gold); font-size: 14px;
+}
+.trust-text h5 { font-size: 13px; font-weight: 600; letter-spacing: 0.03em; margin-bottom: 3px; }
+.trust-text p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* form */
+.form-panel {
+    background: var(--ink-2);
+    border: 1px solid var(--rule);
+    padding: 48px;
+}
+.form-panel h3 {
+    font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic;
+    color: #e8e2d4; margin-bottom: 8px;
+}
+.form-panel .form-sub {
+    font-size: 12px; color: var(--dim); letter-spacing: 0.06em;
+    margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--rule);
+}
+.fgroup { margin-bottom: 20px; }
+.fgroup label {
+    display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 8px;
+}
+.fgroup input, .fgroup select, .fgroup textarea {
+    width: 100%; background: var(--ink); border: 1px solid var(--rule);
+    padding: 14px 16px; font-family: var(--sans); font-size: 14px; color: #e8e2d4;
+    outline: none; transition: border-color 0.2s; appearance: none;
+}
+.fgroup input::placeholder, .fgroup textarea::placeholder { color: var(--dim); }
+.fgroup input:focus, .fgroup select:focus, .fgroup textarea:focus { border-color: rgba(184,146,42,0.5); }
+.fgroup select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23b8922a' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+#priceDisplay {
+    font-family: var(--serif); font-size: 40px; font-weight: 300;
+    color: var(--gold-lt); text-align: center;
+    padding: 20px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    margin: 20px 0;
+    letter-spacing: -0.02em;
+}
+.btn-pay {
+    width: 100%; background: var(--gold); border: none;
+    font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink); padding: 18px; transition: background 0.2s, letter-spacing 0.2s;
+}
+.btn-pay:hover { background: var(--gold-lt); letter-spacing: 0.22em; }
+.form-note { font-size: 11px; color: var(--dim); text-align: center; margin-top: 16px; letter-spacing: 0.06em; }
+.msg-box { margin-top: 16px; padding: 14px 20px; text-align: center; font-size: 13px; }
+.msg-box.hidden { display: none; }
+.msg-ok { background: rgba(111,207,151,0.08); border: 1px solid rgba(111,207,151,0.2); color: #6fcf97; }
+.msg-err { background: rgba(235,87,87,0.08); border: 1px solid rgba(235,87,87,0.2); color: #eb5757; }
+
+/* ══════════════════════════════════════
+   BLOG
+══════════════════════════════════════ */
+#blog {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--ink-2);
+}
+.blog-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 64px; padding-bottom: 40px; border-bottom: 1px solid var(--rule);
+}
+.blog-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+.blog-col {
+    padding: 0 40px;
+    border-right: 1px solid var(--rule);
+}
+.blog-col:first-child { padding-left: 0; }
+.blog-col:last-child { border-right: none; }
+.blog-meta {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 10px; color: var(--dim); letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);
+}
+.blog-meta span { color: var(--gold); }
+.blog-col h3 {
+    font-family: var(--serif); font-size: 24px; font-weight: 400; line-height: 1.2;
+    margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.blog-col p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+.read-more-toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); background: none; border: none;
+    border-bottom: 1px solid rgba(184,146,42,0.3);
+    padding: 0 0 3px; transition: gap 0.2s, border-color 0.2s;
+}
+.read-more-toggle:hover { gap: 13px; border-color: var(--gold); }
+.hidden { display: none !important; }
+.blog-full {
+    margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--rule);
+    font-size: 13px; color: var(--muted); line-height: 1.75;
+}
+.blog-full p { margin-bottom: 12px; }
+.blog-full strong { color: #c8c0b0; font-weight: 600; }
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+#contact { padding: 120px 0; }
+.contact-layout { display: grid; grid-template-columns: 1fr 480px; gap: 100px; }
+.contact-left .subhead { margin-bottom: 28px; }
+.contact-left .body-text { margin-bottom: 48px; }
+.contact-links { margin-bottom: 48px; }
+.contact-link-row {
+    display: flex; align-items: center; gap: 20px;
+    padding: 20px 0; border-top: 1px solid var(--rule);
+    text-decoration: none; color: #e8e2d4;
+    transition: color 0.2s;
+}
+.contact-link-row:last-child { border-bottom: 1px solid var(--rule); }
+.contact-link-row:hover { color: var(--gold-lt); }
+.contact-link-row i { width: 32px; color: var(--gold); font-size: 14px; }
+.contact-link-row span { font-size: 14px; }
+.social-strip { display: flex; gap: 0; }
+.social-btn {
+    width: 44px; height: 44px; border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--dim); font-size: 13px; text-decoration: none;
+    margin-right: -1px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, z-index 0s;
+    position: relative;
+}
+.social-btn:hover { color: var(--gold); border-color: rgba(184,146,42,0.4); background: var(--gold-pale); z-index: 1; }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+    background: var(--ink-2);
+    border-top: 1px solid var(--rule);
+    padding: 36px 48px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    max-width: 100%;
+}
+.footer-logo { font-family: var(--serif); font-size: 20px; font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase; }
+.footer-logo em { font-style: italic; color: var(--gold-lt); font-weight: 300; }
+footer p { font-size: 11px; color: var(--dim); letter-spacing: 0.08em; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 10px; color: var(--dim); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — TABLET (max 1100px)
+══════════════════════════════════════ */
+@media (max-width: 1100px) {
+    .hero-body { grid-template-columns: 1fr; gap: 40px; }
+    .hero-body::before { display: none; }
+    .hero-right { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 32px; display: grid; grid-template-columns: repeat(2,1fr); gap: 0; }
+    .stat-row { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px 16px; }
+    .stat-row:nth-child(even) { border-right: none; }
+    .stat-fig { font-size: 30px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-index { display: none; }
+    .about-main { padding: 0; }
+    .about-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 40px; }
+    .services-header { grid-template-columns: 1fr; gap: 24px; }
+    .services-table td:nth-child(2) { display: none; }
+    .payment-layout { grid-template-columns: 1fr; gap: 56px; }
+    .blog-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .blog-cols { grid-template-columns: 1fr; }
+    .blog-col { padding: 40px 0; border-right: none; border-bottom: 1px solid var(--rule); }
+    .blog-col:first-child { padding-top: 0; }
+    .blog-col:last-child { border-bottom: none; }
+    .contact-layout { grid-template-columns: 1fr; gap: 56px; }
+    .pillars-row { grid-template-columns: 1fr 1fr; }
+    .pillar:nth-child(2) { border-right: none; }
+    .pillar:nth-child(3) { grid-column: span 2; border-right: none; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MOBILE (max 768px)
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    #menu-btn { display: block; }
+    .wrap, .wrap-narrow { padding: 0 20px; }
+    section { padding: 64px 0; }
+    .hero-body { padding: 100px 20px 48px; gap: 32px; }
+    .hero-num { display: none; }
+    .hero-right { grid-template-columns: repeat(2,1fr); }
+    .stat-fig { font-size: 26px; }
+    .stat-lbl { font-size: 9px; max-width: 90px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .tick-item { padding: 12px 24px; }
+    .chart-label-row { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .about-img-wrap::after { display: none; }
+    .pillars-row { grid-template-columns: 1fr; }
+    .pillar { border-right: none; border-bottom: 1px solid var(--rule); padding: 28px 0; }
+    .pillar:nth-child(3) { grid-column: span 1; }
+    .services-table { display: block; }
+    .services-table tbody { display: flex; flex-direction: column; }
+    .services-table tr { display: flex; flex-direction: column; border-top: 1px solid var(--rule); padding: 28px 0; gap: 12px; }
+    .services-table td { padding: 0; width: auto !important; }
+    .services-table td:nth-child(2) { display: none; }
+    .svc-features { display: none; }
+    .svc-name h3 { font-size: 22px; }
+    .svc-action { text-align: left; }
+    .perf-band { grid-template-columns: 1fr; }
+    .perf-cell { border-right: none; border-bottom: 1px solid var(--rule); padding: 28px 20px; }
+    .perf-cell:last-child { border-bottom: none; }
+    .perf-fig { font-size: 48px; }
+    .form-panel { padding: 28px 20px; }
+    #priceDisplay { font-size: 30px; }
+    .social-strip { flex-wrap: wrap; }
+    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
+    #cursor, #cursor-ring { display: none; }
+    * { cursor: auto !important; }
+}
+</style>
 </head>
-<body class="bg-black text-white">
+<body>
 
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm shadow-md py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-	<a href="#home" class="flex items-center space-x-2">
-		<h1 class="text-2xl font-bold tracking-wide text-white">
-			LEAD<span class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-light">WAX</span>
-		</h1>
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-	</a>
-            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-                <a href="#home" class="hover:text-gold-500 transition-colors">Home</a>
-                <a href="#about" class="hover:text-gold-500 transition-colors">About</a>
-                <a href="#services" class="hover:text-gold-500 transition-colors">Services</a>
-                <a href="#blog" class="hover:text-gold-500 transition-colors">Blog</a>
-                <a href="#contact" class="hover:text-gold-500 transition-colors">Contact</a>
-            </nav>
-            <button id="menu-toggle" class="md:hidden text-gold-500 focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+<!-- ─── HEADER ─── -->
+<header id="hdr">
+    <div class="nav-wrap">
+        <a href="#home" class="logo">Lead<em>Wax</em></a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#blog">Resources</a>
+            <a href="#contact">Contact</a>
+            <a href="#payment" class="nav-cta">Get Started</a>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/90 pt-4 pb-2">
-            <nav class="flex flex-col items-center space-y-2 text-sm font-semibold">
-                <a href="#home" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Home</a>
-                <a href="#about" class="py-2 hover:text-gold-500 transition-colors w-full text-center">About</a>
-                <a href="#services" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Services</a>
-                <a href="#blog" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Blog</a>
-                <a href="#contact" class="py-2 hover:text-gold-500 transition-colors w-full text-center">Contact</a>
-            </nav>
+        <button id="menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+    <button id="mob-close"><i class="fas fa-times"></i></button>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#blog">Resources</a>
+    <a href="#contact">Contact</a>
+    <a href="#payment">Get Started</a>
+</div>
+
+<main>
+<!-- ══════════════ HERO ══════════════ -->
+<section id="home">
+    <div class="hero-body">
+        <div class="hero-left">
+            <div class="label hero-eyebrow r d1">Live Signals · Verified Performance</div>
+            <h1 class="display hero-h1 r d2">
+                Navigate<br>
+                the <em>Markets</em><br>
+                with Confidence
+            </h1>
+            <p class="body-text hero-desc r d3">Professional forex signals, mentorship, and resources — built for traders who take their capital seriously.</p>
+            <div class="hero-actions r d4">
+                <a href="#services" class="btn-fill">Explore Services</a>
+                <a href="#contact" class="btn-text">Get in Touch <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <!-- Home Page Section -->
-        <section id="home" class="relative min-h-screen flex items-center justify-center p-8 text-center pt-24">
-            <!-- Background overlay with a touch of gold -->
-            <div class="absolute inset-0 bg-black/90"></div>
-            <div class="relative z-10 max-w-4xl mx-auto fade-in">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-                    <span class="text-gradient-gold">Navigate the Markets with Confidence</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                    LeadWax provides professional forex signals, mentorship, and resources to help you achieve financial independence.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#services" class="bg-gradient-gold text-black font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-gold-500/50 transition-shadow">Explore Our Services</a>
-                    <a href="#contact" class="text-gold-500 border border-gold-500 font-semibold py-3 px-8 rounded-full hover:bg-gold-500 hover:text-black transition-colors">Get in Touch</a>
+        <div class="hero-right r d2">
+            <div class="stat-row">
+                <span class="stat-fig">482<sup style="font-size:22px;vertical-align:super;color:var(--dim)">+</sup></span>
+                <span class="stat-lbl">Pips Gained This Week</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-fig">85<sup style="font-size:22px;vertical-align:super;color:var(--dim)">%</sup></span>
+                <span class="stat-lbl">Signal Win Rate</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-fig">10<sup style="font-size:22px;vertical-align:super;color:var(--dim)">+</sup></span>
+                <span class="stat-lbl">Years of Experience</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-fig">24<sup style="font-size:22px;vertical-align:super;color:var(--dim)">/7</sup></span>
+                <span class="stat-lbl">Member Support</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-ticker">
+        <div class="ticker-track">
+            <div class="tick-item"><span class="tick-pair">EUR/USD</span><span class="tick-val up">1.0850</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">GBP/JPY</span><span class="tick-val down">182.34</span><span class="tick-arr down">↓</span></div>
+            <div class="tick-item"><span class="tick-pair">AUD/CAD</span><span class="tick-val up">0.8921</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">USD/CHF</span><span class="tick-val up">0.9125</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">GBP/USD</span><span class="tick-val down">1.2631</span><span class="tick-arr down">↓</span></div>
+            <div class="tick-item"><span class="tick-pair">USD/JPY</span><span class="tick-val up">149.82</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">NZD/USD</span><span class="tick-val up">0.6142</span><span class="tick-arr up">↑</span></div>
+            <!-- duplicate for loop -->
+            <div class="tick-item"><span class="tick-pair">EUR/USD</span><span class="tick-val up">1.0850</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">GBP/JPY</span><span class="tick-val down">182.34</span><span class="tick-arr down">↓</span></div>
+            <div class="tick-item"><span class="tick-pair">AUD/CAD</span><span class="tick-val up">0.8921</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">USD/CHF</span><span class="tick-val up">0.9125</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">GBP/USD</span><span class="tick-val down">1.2631</span><span class="tick-arr down">↓</span></div>
+            <div class="tick-item"><span class="tick-pair">USD/JPY</span><span class="tick-val up">149.82</span><span class="tick-arr up">↑</span></div>
+            <div class="tick-item"><span class="tick-pair">NZD/USD</span><span class="tick-val up">0.6142</span><span class="tick-arr up">↑</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ CHART ══════════════ -->
+<div class="chart-band">
+    <div class="chart-label-row">
+        <div class="label">EUR/USD · Live Chart</div>
+        <span class="chart-note">Powered by TradingView</span>
+    </div>
+    <div style="height:380px;">
+        <iframe scrolling="no" allowfullscreen frameborder="0" style="height:100%; width:100%;"
+            src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=FX_IDC%3AEURUSD&interval=D&locale=en&range=12m&theme=dark&style=1&timezone=Europe%2FLondon&referral_id=2557&container_id=tradingview_widget">
+        </iframe>
+    </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+    <div class="wrap">
+
+        <div class="about-grid">
+            <!-- Index column -->
+            <div class="about-index r">
+                <span class="about-index-num">01</span>
+                <ul>
+                    <li>Expertise & Proof</li>
+                    <li>Client Results</li>
+                    <li>Our Methodology</li>
+                </ul>
+            </div>
+
+            <!-- Main copy -->
+            <div class="about-main r d1">
+                <div class="label" style="margin-bottom:28px;">Our Story</div>
+                <h2 class="subhead" style="margin-bottom:32px;">A decade of market experience, distilled into <em>precision signals</em></h2>
+                <p class="body-text">We believe success in forex is not just about signals — it's about a deep understanding of the market. Our journey began with a passion for trading and a genuine desire to make financial education accessible.</p>
+                <p class="body-text" style="margin-top:16px;">Our methodology is built on a blend of technical analysis and fundamental insights, ensuring every trade is backed by a solid strategy. We don't just provide signals; we teach you how to read the market yourself.</p>
+            </div>
+
+            <!-- Sidebar testimonials -->
+            <div class="about-sidebar r d2">
+                <div class="quote-block">
+                    <span class="quote-mark">"</span>
+                    <blockquote>The mentorship program completely changed my trading journey. The personalized guidance was invaluable.</blockquote>
+                    <cite>— Sarah K., Mentorship Client</cite>
                 </div>
-                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 fade-in fade-in-delay-1">
-                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                        <i class="fas fa-signal text-3xl text-gold-500 mb-4"></i>
-                        <h3 class="font-bold text-lg mb-2">Exclusive Signals</h3>
-                        <p class="text-gray-400 text-sm">Real-time trading signals from expert analysts.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                        <i class="fas fa-graduation-cap text-3xl text-gold-500 mb-4"></i>
-                        <h3 class="font-bold text-lg mb-2">Academy</h3>
-                        <p class="text-gray-400 text-sm">Comprehensive lessons for all skill levels.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                        <i class="fas fa-handshake text-3xl text-gold-500 mb-4"></i>
-                        <h3 class="font-bold text-lg mb-2">Personal Mentorship</h3>
-                        <p class="text-gray-400 text-sm">One-on-one guidance to accelerate your growth.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                        <i class="fas fa-users-gear text-3xl text-gold-500 mb-4"></i>
-                        <h3 class="font-bold text-lg mb-2">Affiliate Program</h3>
-                        <p class="text-gray-400 text-sm">Partner with us and earn passive income.</p>
-                    </div>
+                <div class="quote-block">
+                    <span class="quote-mark">"</span>
+                    <blockquote>The accuracy is impressive, and the explanations for each trade help me learn as I earn.</blockquote>
+                    <cite>— Michael O., Signals Member</cite>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Live Market Data & Chart Section -->
-        <section class="py-8 bg-gray-900">
-            <div class="container mx-auto px-4">
-                <div class="overflow-hidden whitespace-nowrap py-2">
-                    <div class="inline-block animate-marquee text-lg font-bold">
-                        <span class="px-6 text-gray-400">EUR/USD: <span class="text-green-500">1.0850</span></span>
-                        <span class="px-6 text-gray-400">GBP/JPY: <span class="text-red-500">182.34</span></span>
-                        <span class="px-6 text-gray-400">AUD/CAD: <span class="text-green-500">0.8921</span></span>
-                        <span class="px-6 text-gray-400">USD/CHF: <span class="text-green-500">0.9125</span></span>
-                        <span class="px-6 text-gray-400">EUR/USD: <span class="text-green-500">1.0850</span></span>
-                        <span class="px-6 text-gray-400">GBP/JPY: <span class="text-red-500">182.34</span></span>
-                        <span class="px-6 text-gray-400">AUD/CAD: <span class="text-green-500">0.8921</span></span>
-                        <span class="px-6 text-gray-400">USD/CHF: <span class="text-green-500">0.9125</span></span>
-                    </div>
-                </div>
-                <div class="mt-8 rounded-xl overflow-hidden shadow-2xl fade-in fade-in-delay-1">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container" style="height:400px; width:100%;">
-                        <iframe scrolling="no" allowfullscreen frameborder="0" style="height:100%; width:100%;"
-                            src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=FX_IDC%3AEURUSD&interval=D&toolbar_bg=%23f1f3f6&locale=en&range=12m&allow_embed_in_clipboard=1&details=false&studies=%5B%5D&theme=dark&style=1&timezone=Europe%2FLondon&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&referral_id=2557&container_id=tradingview_widget">
-                        </iframe>
-                    </div>
-                    <!-- TradingView Widget END -->
-                </div>
+        <!-- Pillars -->
+        <div class="pillars-row">
+            <div class="pillar r">
+                <span class="pillar-num">i.</span>
+                <h4>Transparency &amp; Trust</h4>
+                <p>We provide clear explanations for every trading decision, so you always know exactly what you're getting.</p>
             </div>
-        </section>
-
-        <!-- About Page Section -->
-        <section id="about" class="py-20 px-8">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Our Story</h2>
-                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                        We believe that success in forex is not just about signals, but about a deep understanding of the market. Our journey began with a passion for trading and a desire to make financial education accessible to everyone.
-                    </p>
-                </div>
-                <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12 fade-in fade-in-delay-1">
-                    <div class="md:w-1/2">
-                        <img src="1.jpg" alt="A professional forex trader at work" class="rounded-xl shadow-2xl">
-                    </div>
-                    <div class="md:w-1/2">
-                        <h3 class="text-2xl font-bold text-gold-500 mb-4">Expertise and Proof</h3>
-                        <p class="text-gray-400 mb-6">
-                            With over a decade of experience in the forex market, our lead analyst has a proven track record of consistent results. Our methodology is built on a blend of technical analysis and fundamental insights, ensuring every trade is backed by a solid strategy. We don't just provide signals; we teach you how to analyze the market yourself.
-                        </p>
-                        <h4 class="text-xl font-bold mb-4">What Our Clients Say</h4>
-                        <div class="space-y-6">
-                            <blockquote class="p-6 bg-gray-800/50 rounded-lg shadow-xl border-l-4 border-gold-500">
-                                <p class="text-gray-300 italic mb-2">"The mentorship program completely changed my trading journey. The personalized guidance and in-depth lessons were invaluable. My results have never been better!"</p>
-                                <footer class="text-right text-sm font-semibold text-gold-500">— Sarah K., Mentorship Client</footer>
-                            </blockquote>
-                            <blockquote class="p-6 bg-gray-800/50 rounded-lg shadow-xl border-l-4 border-gold-500">
-                                <p class="text-gray-300 italic mb-2">"The signal group is fantastic. The accuracy is impressive, and the explanations for each trade help me learn as I earn. Highly recommend!"</p>
-                                <footer class="text-right text-sm font-semibold text-gold-500">— Michael O., Signals Group Member</footer>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
+            <div class="pillar r d1">
+                <span class="pillar-num">ii.</span>
+                <h4>Expert-Led Strategies</h4>
+                <p>Seasoned analysts with a proven track record navigating complex and volatile market conditions.</p>
             </div>
-            <!-- Why Choose Us Section -->
-            <div class="mt-20 px-8 fade-in fade-in-delay-2">
-                <div class="container mx-auto max-w-6xl text-center">
-                    <h3 class="text-4xl font-bold mb-12 text-gradient-gold">Why Choose Us?</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                            <i class="fas fa-lock text-5xl text-gold-500 mb-4"></i>
-                            <h4 class="font-bold text-xl mb-2">Transparency & Trust</h4>
-                            <p class="text-gray-400">We provide transparent results and clear explanations for every trading decision, so you know exactly what you’re getting.</p>
-                        </div>
-                        <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                            <i class="fas fa-chart-line text-5xl text-gold-500 mb-4"></i>
-                            <h4 class="font-bold text-xl mb-2">Expert-Led Strategies</h4>
-                            <p class="text-gray-400">Our team consists of seasoned analysts with a proven track record of navigating complex market conditions.</p>
-                        </div>
-                        <div class="p-6 bg-gray-800/50 rounded-lg shadow-xl hover:shadow-gold-500/30 transition-shadow duration-300">
-                            <i class="fas fa-user-gear text-5xl text-gold-500 mb-4"></i>
-                            <h4 class="font-bold text-xl mb-2">Tailored for You</h4>
-                            <p class="text-gray-400">Whether you're a complete beginner or a seasoned professional, our services are designed to meet your specific needs.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="pillar r d2">
+                <span class="pillar-num">iii.</span>
+                <h4>Tailored for You</h4>
+                <p>Whether you're a complete beginner or a seasoned professional, our services meet your specific needs.</p>
             </div>
-        </section>
+        </div>
 
-        <!-- Services Page Section -->
-        <section id="services" class="py-20 px-8 bg-gray-900">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Our Services</h2>
-                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                        Choose the solution that fits your trading style and goals. Whether you are a beginner or an experienced trader, we have a plan for you.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in fade-in-delay-1">
-                    <!-- Service 1: Signal Group -->
-                    <div class="bg-gray-800/50 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
-                        <img src="9.jpg" alt="Forex signal group" class="w-full h-48 object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Signal Group</h3>
-                            <p class="text-gray-400 mb-6">
-                                Join our exclusive Telegram group for daily, high-quality forex signals. We provide entry, stop-loss, and take-profit levels with detailed analysis for each trade.
-                            </p>
-                            <ul class="space-y-2 text-gray-300 mb-6">
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Daily Signals</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Full Analysis Provided</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> 24/7 Member Support</li>
-                            </ul>
-                            <a href="#payment" class="bg-gradient-gold text-black font-semibold py-3 px-6 rounded-full w-full block text-center hover:shadow-lg transition-shadow">Join Now</a>
-                        </div>
-                    </div>
-                    <!-- Service 2: Mentorship -->
-                    <div class="bg-gray-800/50 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
-                        <img src="3.jpg" alt="Forex mentorship program" class="w-full h-48 object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Personal Mentorship</h3>
-                            <p class="text-gray-400 mb-6">
-                                Get personalized, one-on-one coaching to master your trading skills. From strategy development to risk management, we cover it all.
-                            </p>
-                            <ul class="space-y-2 text-gray-300 mb-6">
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Custom Learning Plan</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Weekly Live Sessions</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Trading Psychology</li>
-                            </ul>
-                            <a href="#payment" class="bg-gradient-gold text-black font-semibold py-3 px-6 rounded-full w-full block text-center hover:shadow-lg transition-shadow">Book a Session</a>
-                        </div>
-                    </div>
-                    <!-- Service 3: Account Management -->
-                    <div class="bg-gray-800/50 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
-                        <img src="4.jpg" alt="Forex account management" class="w-full h-48 object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Account Management</h3>
-                            <p class="text-gray-400 mb-6">
-                                Have our team of experts trade on your behalf. We handle all the trading, risk management, and profit-taking for you.
-                            </p>
-                            <ul class="space-y-2 text-gray-300 mb-6">
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Passive Income</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Transparent Reporting</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-gold-500 mr-2"></i> Secure & Regulated</li>
-                            </ul>
-                            <a href="#contact" class="bg-gradient-gold text-black font-semibold py-3 px-6 rounded-full w-full block text-center hover:shadow-lg transition-shadow">Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Live Trading Performance Tracker -->
-                <div class="mt-16 text-center bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-2">
-                    <h3 class="text-4xl font-bold text-gold-500 mb-4">Live Performance Tracker</h3>
-                    <p class="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
-                        Our commitment to transparency is reflected in our live performance. See the real-time results from our signal group.
-                    </p>
-                    <!-- This section would be dynamically populated by a backend API -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-2xl font-semibold">
-                        <div class="p-4 bg-gray-900 rounded-lg">
-                            <p class="text-gold-500 text-4xl font-bold">482+</p>
-                            <p class="text-sm text-gray-400">Pips Gained This Week</p>
-                        </div>
-                        <div class="p-4 bg-gray-900 rounded-lg">
-                            <p class="text-gold-500 text-4xl font-bold">85%</p>
-                            <p class="text-sm text-gray-400">Win Rate</p>
-                        </div>
-                        <div class="p-4 bg-gray-900 rounded-lg">
-                            <p class="text-gold-500 text-4xl font-bold">12</p>
-                            <p class="text-sm text-gray-400">Signals Posted</p>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-xs text-gray-500 italic">Note: Data is for illustrative purposes. Real-time data would be fetched from a dedicated API.</p>
-                </div>
+    </div>
+</section>
+
+<!-- ══════════════ SERVICES ══════════════ -->
+<section id="services">
+    <div class="wrap">
+
+        <div class="services-header r">
+            <div>
+                <div class="label" style="margin-bottom:24px;">02 — Services</div>
+                <h2 class="subhead">Choose your <em>trading path</em></h2>
             </div>
-        </section>
-
-        <!-- Payment Page Section -->
-        <section id="payment" class="py-20 px-8 bg-black">
-            <div class="container mx-auto max-w-xl fade-in">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Secure Payments</h2>
-                    <p class="text-lg text-gray-400">
-                        Ready to get started? Fill out the form below to complete your payment.
-                    </p>
-                </div>
-                <!-- Payment Form -->
-				<div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl">
-				  <form id="paymentForm" class="space-y-6">
-					<div>
-					  <label for="fullName" class="block text-sm font-medium text-gray-400">Full Name</label>
-					  <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-					</div>
-					<div>
-					  <label for="email" class="block text-sm font-medium text-gray-400">Email Address</label>
-					  <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-					</div>
-					<div>
-					  <label for="phone" class="block text-sm font-medium text-gray-400">Phone (optional)</label>
-					  <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-					</div>
-					<div>
-					  <label for="service" class="block text-sm font-medium text-gray-400">Select Service</label>
-					  <select id="service" name="service" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-gold-500">
-						<option value="">-- Choose a service --</option>
-						<option value="signals">Signal Group</option>
-						<option value="mentorship">Personal Mentorship</option>
-						<option value="account-management">Account Management</option>
-					  </select>
-					</div>
-
-					<div>
-					  <p id="priceDisplay" class="text-center text-gray-300 font-semibold">Price: ₦0</p>
-					</div>
-
-					<div class="text-center">
-					  <button id="payNowBtn" type="submit" class="bg-gradient-gold text-black font-semibold py-3 px-12 rounded-full w-full hover:shadow-lg transition-shadow">Pay Now</button>
-					</div>
-				  </form>
-
-				  <div id="paymentMessage" class="mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg hidden">
-					<p id="paymentMessageText">Thank you! Processing your payment…</p>
-				  </div>
-
-				  <div class="mt-4 text-center text-xs text-gray-500 italic">
-					<p>Note: This form uses Paystack via a secure backend for verification.</p>
-				  </div>
-				</div>
-        </section>
-
-        <!-- Blog/Resources Section -->
-        <section id="blog" class="py-20 px-8 bg-black">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Free Resources & Guides</h2>
-                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                        Learn the basics, discover new strategies, and stay updated with the latest market trends with our free educational content.
-                    </p>
-                </div>
-                <div class="space-y-16">
-                    <!-- Blog Post 1: 5 Essential Steps for a New Forex Trader -->
-                    <article class="bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-1">
-                        <div class="flex items-center mb-4 text-gray-500">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            <span class="text-sm">Posted on October 26, 2024</span>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gold-500 mb-4">5 Essential Steps for a New Forex Trader</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            Starting your forex trading journey can be both exciting and intimidating. The key to success is not a secret strategy, but a solid foundation built on discipline, knowledge, and smart risk management. Here are five essential steps every new forex trader should take to set themselves up for success.
-                        </p>
-                        
-                        <!-- Full article content hidden by default -->
-                        <div id="full-post-1" class="hidden space-y-6 text-gray-300">
-                            <p><strong>1. Get to Know the Market.</strong> Before you place your first trade, it's crucial to understand what you're trading. Forex is the global market for exchanging currencies. You're not buying anything physical; you're betting on a currency pair's value fluctuating against another.</p>
-                            
-                            <p><strong>2. Create a Trading Plan.</strong> A trading plan is your roadmap. It should outline your goals, risk tolerance, strategy, and rules for entry and exit. A good plan will prevent emotional trading and keep you disciplined.</p>
-                            
-                            <p><strong>3. Practice with a Demo Account.</strong> A demo account is a simulation of the live market. It allows you to practice your strategies with virtual money, so you can make mistakes without losing real capital. This step is non-negotiable for beginners.</p>
-                            
-                            <p><strong>4. Start Small and Manage Risk.</strong> When you're ready to go live, start with a small amount of capital you're comfortable losing. Never risk more than 1-2% of your account on a single trade. This is the golden rule of risk management and the key to long-term survival in the market.</p>
-                            
-                            <p><strong>5. Keep a Trading Journal.</strong> A journal helps you track your trades, analyze your performance, and identify patterns in your behavior. It's the most effective tool for learning from your mistakes and improving your decision-making over time.</p>
-                        </div>
-                        <a href="#full-post-1" class="read-more-toggle mt-4 inline-block text-gold-500 font-semibold hover:underline" data-target="full-post-1">
-                            Read More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </article>
-
-                    <!-- Blog Post 2: Mastering Risk Management -->
-                    <article class="bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-2">
-                        <div class="flex items-center mb-4 text-gray-500">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            <span class="text-sm">Posted on October 19, 2024</span>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gold-500 mb-4">Mastering Risk Management in Volatile Markets</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            Risk management is the single most important skill in trading. Without it, even the most profitable strategies are doomed to fail. In volatile markets, where prices can change in an instant, a solid risk management plan isn't just an advantage—it's a necessity.
-                        </p>
-                        
-                        <div id="full-post-2" class="hidden space-y-6 text-gray-300">
-                            <p><strong>The Golden Rule: The 1% Rule.</strong> The most widely accepted risk management principle is to never risk more than 1% of your total account balance on a single trade. If you have a $1,000 account, your maximum loss on any given trade should be no more than $10.</p>
-                            
-                            <p><strong>Position Sizing.</strong> Proper position sizing goes hand-in-hand with the 1% rule. Your position size should be calculated based on your stop-loss and the 1% rule. For example, if your stop-loss is 50 pips and you're willing to lose $10, you should open a position size where a 50-pip loss equals $10.  This ensures you can sustain multiple losses without your account being wiped out.</p>
-                            
-                            <p><strong>Using Stop-Loss Orders.</strong> A stop-loss order is a mandatory tool. It automatically closes your trade when the price reaches a certain level, limiting your losses. Placing a stop-loss is an act of discipline; it removes emotion from the trade and protects your capital from unexpected market reversals.</p>
-                            
-                            <p><strong>Setting Take-Profit Levels.</strong> Just as a stop-loss protects you from losses, a take-profit order locks in your gains. It automatically closes a trade when it reaches a predetermined profit level. This helps you avoid getting greedy and ensures you capture your profits before the market turns against you.</p>
-                        </div>
-                        <a href="#full-post-2" class="read-more-toggle mt-4 inline-block text-gold-500 font-semibold hover:underline" data-target="full-post-2">
-                            Read More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </article>
-
-                    <!-- Blog Post 3: The Power of Candlestick Patterns -->
-                    <article class="bg-gray-800/50 rounded-xl p-8 shadow-2xl fade-in fade-in-delay-3">
-                        <div class="flex items-center mb-4 text-gray-500">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            <span class="text-sm">Posted on October 12, 2024</span>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gold-500 mb-4">The Power of Candlestick Patterns</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            Candlestick charts are a powerful tool for technical analysis. Unlike simple line charts, they provide a visual representation of price action over a period, offering insights into market sentiment and potential price reversals. Learning to read them is a fundamental skill for any serious trader.
-                        </p>
-                        
-                        <div id="full-post-3" class="hidden space-y-6 text-gray-300">
-                            <p><strong>What is a Candlestick?</strong> A single candlestick represents the open, high, low, and close price for a specific time frame. The main body of the candle shows the range between the open and close price, while the "wicks" or "shadows" show the high and low. A green (or hollow) candle indicates the price closed higher than it opened, while a red (or filled) candle means the price closed lower. 
-                            <img src="candle.png" alt="Forex candlestick chart" class="rounded-xl shadow-2xl mx-auto">
-							</p>
-                            
-                            <p><strong>Common Patterns to Look For.</strong>
-                            <ul>
-                                <li><strong>Doji:</strong> A candle with a very small body and long wicks. It indicates indecision in the market and often signals a potential reversal.</li>
-                                <li><strong>Hammer and Inverted Hammer:</strong> These are single-candle reversal patterns. A hammer has a small body at the top and a long lower wick, indicating sellers tried to push the price down but buyers pushed it back up. An inverted hammer is the opposite.</li>
-                                <li><strong>Engulfing Patterns:</strong> This is a two-candle pattern where the second candle's body completely "engulfs" the first candle's body. A bullish engulfing pattern can signal a strong reversal to the upside.</li>
-                                <li><strong>Morning and Evening Stars:</strong> These are three-candle patterns that signal a strong trend reversal. They are considered one of the most reliable candlestick patterns.</li>
-                            </ul>
-                            </p>
-                            
-                            <p>Understanding these patterns helps you anticipate market moves, but they should always be used in conjunction with other tools and indicators for confirmation. They are a piece of the puzzle, not the entire picture.</p>
-                        </div>
-                        <a href="#full-post-3" class="read-more-toggle mt-4 inline-block text-gold-500 font-semibold hover:underline" data-target="full-post-3">
-                            Read More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </article>
-                </div>
+            <div class="services-header-right">
+                <p class="body-text">Every trader is different. Pick the solution that aligns with your goals, capital, and experience level.</p>
             </div>
-        </section>
+        </div>
 
-        <!-- Contact Page Section -->
-        <section id="contact" class="py-20 px-8">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-4xl font-bold mb-4 text-gradient-gold">Get in Touch</h2>
-                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                        Whether you have a question about our services or need assistance, we're here to help. Contact us via any of the channels below.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 fade-in fade-in-delay-1">
-                    <!-- Contact Form -->
-                    <div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl">
-                        <h3 class="text-2xl font-bold text-gold-500 mb-6">Send Us a Message</h3>
-                        <form id="contactForm" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-400">Name</label>
-                                <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                            </div>
-                            <div>
-                                <label for="contactEmail" class="block text-sm font-medium text-gray-400">Email</label>
-                                <input type="email" id="contactEmail" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-400">Message</label>
-                                <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-500"></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="bg-gradient-gold text-black font-semibold py-3 px-12 rounded-full w-full hover:shadow-lg transition-shadow">Send Message</button>
-                            </div>
-                        </form>
-                        <div id="contactMessage" class="mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg hidden">
-                            <p>Thank you! Your message has been sent successfully.</p>
+        <table class="services-table r d1">
+            <tr>
+                <td class="svc-num">01</td>
+                <td class="svc-img"><img src="https://leadwaxfx.vercel.app/9.jpg" alt="Signal Group"></td>
+                <td class="svc-name">
+                    <h3>Signal Group</h3>
+                    <span class="tag">Daily Signals</span>
+                </td>
+                <td class="svc-desc">Exclusive Telegram group. Daily high-quality forex signals with entry, stop-loss, and take-profit levels — and a full analysis behind each one.</td>
+                <td class="svc-features">
+                    <ul>
+                        <li>Daily High-Quality Signals</li>
+                        <li>Full Analysis Provided</li>
+                        <li>24/7 Member Support</li>
+                    </ul>
+                </td>
+                <td class="svc-action"><a href="#payment">Join Now <i class="fas fa-arrow-right" style="font-size:9px;"></i></a></td>
+            </tr>
+            <tr>
+                <td class="svc-num">02</td>
+                <td class="svc-img"><img src="https://leadwaxfx.vercel.app/3.jpg" alt="Mentorship"></td>
+                <td class="svc-name">
+                    <h3>Personal Mentorship</h3>
+                    <span class="tag">1-on-1 Coaching</span>
+                </td>
+                <td class="svc-desc">Personalized coaching from strategy development to risk management and trading psychology. Built around your schedule and pace.</td>
+                <td class="svc-features">
+                    <ul>
+                        <li>Custom Learning Plan</li>
+                        <li>Weekly Live Sessions</li>
+                        <li>Trading Psychology</li>
+                    </ul>
+                </td>
+                <td class="svc-action"><a href="#payment">Book a Session <i class="fas fa-arrow-right" style="font-size:9px;"></i></a></td>
+            </tr>
+            <tr>
+                <td class="svc-num">03</td>
+                <td class="svc-img"><img src="https://leadwaxfx.vercel.app/4.jpg" alt="Account Management"></td>
+                <td class="svc-name">
+                    <h3>Account Management</h3>
+                    <span class="tag">Passive Income</span>
+                </td>
+                <td class="svc-desc">Our expert team trades on your behalf. We handle execution, risk management, and profit-taking — you watch your capital grow.</td>
+                <td class="svc-features">
+                    <ul>
+                        <li>Fully Managed Portfolio</li>
+                        <li>Transparent Reporting</li>
+                        <li>Secure &amp; Regulated</li>
+                    </ul>
+                </td>
+                <td class="svc-action"><a href="#contact">Inquire <i class="fas fa-arrow-right" style="font-size:9px;"></i></a></td>
+            </tr>
+        </table>
+
+        <div class="perf-band r">
+            <div class="perf-cell">
+                <span class="perf-fig">482<sup style="font-size:28px;color:var(--dim)">+</sup></span>
+                <span class="perf-lbl">Pips Gained This Week</span>
+            </div>
+            <div class="perf-cell">
+                <span class="perf-fig">85<sup style="font-size:28px;color:var(--dim)">%</sup></span>
+                <span class="perf-lbl">Win Rate</span>
+            </div>
+            <div class="perf-cell">
+                <span class="perf-fig">12</span>
+                <span class="perf-lbl">Signals Posted</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════ PAYMENT ══════════════ -->
+<section id="payment">
+    <div class="wrap">
+
+        <div class="payment-layout">
+            <div class="payment-left r">
+                <div class="label" style="margin-bottom:24px;">03 — Secure Checkout</div>
+                <h2 class="subhead" style="margin-bottom:28px;">Ready to <em>get started?</em></h2>
+                <p class="body-text" style="margin-bottom:40px;">Choose your service and complete payment securely via Paystack. You'll receive immediate access after confirmation.</p>
+                <div class="trust-list">
+                    <div class="trust-item">
+                        <div class="trust-icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="trust-text">
+                            <h5>PCI-DSS Compliant</h5>
+                            <p>Payments processed securely via Paystack. We never store card details.</p>
                         </div>
                     </div>
-
-                    <!-- Socials and Other Contact Info -->
-                    <div class="bg-gray-800/50 rounded-xl p-8 shadow-2xl space-y-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Connect Directly</h3>
-                            <ul class="space-y-4 text-gray-300">
-                                <li class="flex items-center space-x-4">
-                                    <i class="fas fa-envelope text-2xl text-gold-500"></i>
-                                    <span class="text-lg">hello@leadwax.com</span>
-                                </li>
-                                <li class="flex items-center space-x-4">
-                                    <i class="fab fa-telegram-plane text-2xl text-gold-500"></i>
-                                    <a href="#" target="_blank" class="text-lg hover:underline">@LeadWaxTelegram</a>
-                                </li>
-                                <li class="flex items-center space-x-4">
-                                    <i class="fab fa-whatsapp text-2xl text-gold-500"></i>
-                                    <a href="#" target="_blank" class="text-lg hover:underline">+1 (234) 1117-890</a>
-                                </li>
-                            </ul>
+                    <div class="trust-item">
+                        <div class="trust-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="trust-text">
+                            <h5>Instant Access</h5>
+                            <p>Redirected to the community immediately after payment confirmation.</p>
                         </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gold-500 mb-4">Follow Us</h3>
-                            <div class="flex space-x-6 text-2xl">
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-twitter"></i></a>
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-instagram"></i></a>
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-gold-500 transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon"><i class="fas fa-headset"></i></div>
+                        <div class="trust-text">
+                            <h5>Always Available</h5>
+                            <p>24/7 support if anything goes wrong with your transaction.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 py-8 text-center text-sm text-gray-500">
-        <p>&copy; 2025 LeadWax. All Rights Reserved.</p>
-    </footer>
+            <div class="form-panel r d2">
+                <h3>Complete Your Order</h3>
+                <p class="form-sub">Fill in your details below to proceed to payment.</p>
+                <form id="paymentForm">
+                    <div class="fgroup">
+                        <label>Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="fgroup">
+                        <label>Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="fgroup">
+                        <label>Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+234 000 000 0000">
+                    </div>
+                    <div class="fgroup">
+                        <label>Select Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">— Choose a service —</option>
+                            <option value="signals">Signal Group</option>
+                            <option value="mentorship">Personal Mentorship</option>
+                            <option value="account-management">Account Management</option>
+                        </select>
+                    </div>
+                    <div id="priceDisplay">₦0</div>
+                    <button type="submit" id="payNowBtn" class="btn-pay">Pay Now</button>
+                </form>
+                <div id="paymentMessage" class="msg-box msg-ok hidden">
+                    <p id="paymentMessageText">Processing your payment…</p>
+                </div>
+                <p class="form-note">Secured by Paystack · Card details never stored</p>
+            </div>
+        </div>
 
-    <!-- JavaScript for Mobile Menu, Forms, and Scroll Reveal -->
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Toggle
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelectorAll('nav a, #mobile-menu a');
-            
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+    </div>
+</section>
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
+<!-- ══════════════ BLOG ══════════════ -->
+<section id="blog">
+    <div class="wrap">
 
-            // Smooth Scroll
-            navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
+        <div class="blog-header r">
+            <div>
+                <div class="label" style="margin-bottom:16px;">04 — Free Resources</div>
+                <h2 class="subhead">Learn to <em>trade better</em></h2>
+            </div>
+            <p class="body-text" style="max-width:380px;">Practical guides, strategies, and market analysis — all free, all actionable.</p>
+        </div>
 
-            // Read More Toggle for Blog Posts
-            const readMoreToggles = document.querySelectorAll('.read-more-toggle');
-            readMoreToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('data-target');
-                    const fullContent = document.getElementById(targetId);
-                    
-                    fullContent.classList.toggle('hidden');
-                    
-                    if (fullContent.classList.contains('hidden')) {
-                        this.innerHTML = `Read More <i class="fas fa-arrow-right ml-1"></i>`;
-                    } else {
-                        this.innerHTML = `Read Less <i class="fas fa-arrow-up ml-1"></i>`;
-                    }
-                });
-            });
-            
-					(function(){
-			// Service pricing (NGN)
-			const prices = {
-			  'signals': 500,
-			  'mentorship': 25000,
-			  'account-management': 100000
-			};
+        <div class="blog-cols">
+            <div class="blog-col r">
+                <div class="blog-meta"><span>01</span> October 26, 2024</div>
+                <h3>5 Essential Steps for a New Forex Trader</h3>
+                <p>Starting your forex journey can be exciting and intimidating. The key is a solid foundation built on discipline, knowledge, and smart risk management.</p>
+                <a href="#full-post-1" class="read-more-toggle" data-target="full-post-1">Read More <i class="fas fa-arrow-right"></i></a>
+                <div id="full-post-1" class="blog-full hidden">
+                    <p><strong>1. Get to Know the Market.</strong> Before you place your first trade, it's crucial to understand what you're trading. Forex is the global market for exchanging currencies. You're not buying anything physical; you're betting on a currency pair's value fluctuating against another.</p>
+                    <p><strong>2. Create a Trading Plan.</strong> A trading plan is your roadmap. It should outline your goals, risk tolerance, strategy, and rules for entry and exit. A good plan will prevent emotional trading and keep you disciplined.</p>
+                    <p><strong>3. Practice with a Demo Account.</strong> A demo account is a simulation of the live market. It allows you to practice your strategies with virtual money, so you can make mistakes without losing real capital. This step is non-negotiable for beginners.</p>
+                    <p><strong>4. Start Small and Manage Risk.</strong> When you're ready to go live, start with a small amount of capital you're comfortable losing. Never risk more than 1-2% of your account on a single trade. This is the golden rule of risk management and the key to long-term survival in the market.</p>
+                    <p><strong>5. Keep a Trading Journal.</strong> A journal helps you track your trades, analyze your performance, and identify patterns in your behavior. It's the most effective tool for learning from your mistakes and improving your decision-making over time.</p>
+                </div>
+            </div>
+            <div class="blog-col r d1">
+                <div class="blog-meta"><span>02</span> October 19, 2024</div>
+                <h3>Mastering Risk Management in Volatile Markets</h3>
+                <p>Risk management is the single most important skill in trading. Without it, even the most profitable strategies are doomed to fail.</p>
+                <a href="#full-post-2" class="read-more-toggle" data-target="full-post-2">Read More <i class="fas fa-arrow-right"></i></a>
+                <div id="full-post-2" class="blog-full hidden">
+                    <p><strong>The Golden Rule: The 1% Rule.</strong> The most widely accepted risk management principle is to never risk more than 1% of your total account balance on a single trade. If you have a $1,000 account, your maximum loss on any given trade should be no more than $10.</p>
+                    <p><strong>Position Sizing.</strong> Proper position sizing goes hand-in-hand with the 1% rule. Your position size should be calculated based on your stop-loss and the 1% rule — ensuring you can sustain multiple losses without your account being wiped out.</p>
+                    <p><strong>Using Stop-Loss Orders.</strong> A stop-loss order is a mandatory tool. It automatically closes your trade when the price reaches a certain level, limiting your losses. Placing a stop-loss removes emotion from the trade and protects your capital from unexpected reversals.</p>
+                    <p><strong>Setting Take-Profit Levels.</strong> Just as a stop-loss protects you from losses, a take-profit order locks in your gains. It automatically closes a trade when it reaches a predetermined profit level, helping you capture profits before the market turns against you.</p>
+                </div>
+            </div>
+            <div class="blog-col r d2">
+                <div class="blog-meta"><span>03</span> October 12, 2024</div>
+                <h3>The Power of Candlestick Patterns</h3>
+                <p>Candlestick charts provide a visual representation of price action over a period, offering insights into market sentiment and potential price reversals.</p>
+                <a href="#full-post-3" class="read-more-toggle" data-target="full-post-3">Read More <i class="fas fa-arrow-right"></i></a>
+                <div id="full-post-3" class="blog-full hidden">
+                    <p><strong>What is a Candlestick?</strong> A single candlestick represents the open, high, low, and close price for a specific time frame. The body shows the range between the open and close; the wicks show the high and low. A green candle indicates the price closed higher than it opened, while a red candle means the price closed lower.</p>
+                    <img src="candle.png" alt="Forex candlestick chart" style="width:100%; border-radius:2px; margin:16px 0; opacity:0.88;">
+                    <p><strong>Common Patterns to Look For:</strong></p>
+                    <ul style="margin:10px 0 14px 0; display:flex; flex-direction:column; gap:8px; list-style:none;">
+                        <li style="display:flex; gap:10px; font-size:13px; color:var(--muted);"><span style="color:var(--gold); flex-shrink:0;">·</span><span><strong style="color:#c8c0b0;">Doji:</strong> A candle with a very small body and long wicks — indicates indecision and often signals a potential reversal.</span></li>
+                        <li style="display:flex; gap:10px; font-size:13px; color:var(--muted);"><span style="color:var(--gold); flex-shrink:0;">·</span><span><strong style="color:#c8c0b0;">Hammer &amp; Inverted Hammer:</strong> Single-candle reversal patterns. A hammer has a small body at the top and a long lower wick, showing buyers overpowered sellers.</span></li>
+                        <li style="display:flex; gap:10px; font-size:13px; color:var(--muted);"><span style="color:var(--gold); flex-shrink:0;">·</span><span><strong style="color:#c8c0b0;">Engulfing Patterns:</strong> A two-candle pattern where the second candle's body completely engulfs the first. A bullish engulfing pattern signals a strong reversal upside.</span></li>
+                        <li style="display:flex; gap:10px; font-size:13px; color:var(--muted);"><span style="color:var(--gold); flex-shrink:0;">·</span><span><strong style="color:#c8c0b0;">Morning &amp; Evening Stars:</strong> Three-candle patterns signalling strong trend reversals — among the most reliable candlestick formations.</span></li>
+                    </ul>
+                    <p>Understanding these patterns helps you anticipate market moves, but they should always be used in conjunction with other tools for confirmation. They are a piece of the puzzle, not the entire picture.</p>
+                </div>
+            </div>
+        </div>
 
-			const serviceSelect = document.getElementById('service');
-			const priceDisplay = document.getElementById('priceDisplay');
-			const paymentForm = document.getElementById('paymentForm');
-			const paymentMessage = document.getElementById('paymentMessage');
-			const paymentMessageText = document.getElementById('paymentMessageText');
+    </div>
+</section>
 
-			const PUBLIC_KEY = "pk_test_836795a935d7048f4b8291936a858f2491e36364";
-			const BACKEND_VERIFY_URL = "https://leadwax-backend.onrender.com/verify-payment";
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+    <div class="wrap">
 
+        <div class="contact-layout">
+            <div class="contact-left r">
+                <div class="label" style="margin-bottom:24px;">05 — Get in Touch</div>
+                <h2 class="subhead" style="margin-bottom:28px;">Let's <em>talk</em></h2>
+                <p class="body-text" style="margin-bottom:48px;">Have questions about our services? Need help choosing the right plan? We're here — reach out through any of the channels below and someone will get back to you promptly.</p>
 
-			// Update price on service change
-			serviceSelect.addEventListener('change', () => {
-			  const selected = serviceSelect.value;
-			  const p = prices[selected] || 0;
-			  priceDisplay.textContent = `Price: ₦${p.toLocaleString()}`;
-			});
+                <div class="contact-links">
+                    <a href="mailto:hello@leadwax.com" class="contact-link-row">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@leadwax.com</span>
+                    </a>
+                    <a href="#" target="_blank" class="contact-link-row">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>@LeadWaxTelegram</span>
+                    </a>
+                    <a href="#" target="_blank" class="contact-link-row">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+1 (234) 1117-890</span>
+                    </a>
+                </div>
 
-			// Submit handler: open Paystack inline
-			paymentForm.addEventListener('submit', function(e){
-			  e.preventDefault();
-			  const name = document.getElementById('name').value.trim();
-			  const email = document.getElementById('email').value.trim();
-			  const phone = document.getElementById('phone').value.trim();
-			  const service = serviceSelect.value;
+                <div class="social-strip">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
 
-			  if (!name || !email || !service) {
-				alert('Please fill name, email, and select a service.');
-				return;
-			  }
+            <div class="form-panel r d2">
+                <h3>Send a Message</h3>
+                <p class="form-sub">We typically respond within a few hours.</p>
+                <form id="contactForm">
+                    <div class="fgroup">
+                        <label>Name</label>
+                        <input type="text" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="fgroup">
+                        <label>Email</label>
+                        <input type="email" id="contactEmail" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="fgroup">
+                        <label>Message</label>
+                        <textarea name="message" id="message" rows="5" required placeholder="What's on your mind?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-pay">Send Message</button>
+                </form>
+                <div id="contactMessage" class="msg-box msg-ok hidden">
+                    <p>Message sent. We'll be in touch shortly.</p>
+                </div>
+            </div>
+        </div>
 
-			  const amountNGN = prices[service];
-			  if (!amountNGN) {
-				alert('Please select a valid service.');
-				return;
-			  }
+    </div>
+</section>
+</main>
 
-			  // show processing message
-			  paymentMessage.classList.remove('hidden');
-			  paymentMessageText.textContent = 'Opening secure payment...';
+<!-- ─── FOOTER ─── -->
+<footer>
+    <div class="footer-logo">Lead<em>Wax</em></div>
+    <p>© 2025 LeadWax. All Rights Reserved.</p>
+    <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+    </div>
+</footer>
 
-			  const handler = PaystackPop.setup({
-				key: PUBLIC_KEY,
-				email: email,
-				amount: amountNGN * 100, 
-				currency: "NGN",
-				metadata: {
-				  custom_fields: [
-					{display_name: "Full Name", variable_name: "full_name", value: name},
-					{display_name: "Phone", variable_name: "phone", value: phone || ''}
-				  ]
-				},
-				callback: function(response){
-				  // response.reference available — verify on backend
-				  paymentMessage.classList.remove('hidden');
-				  paymentMessageText.textContent = 'Payment made. Verifying...';
-				  fetch(BACKEND_VERIFY_URL, {
-					method: 'POST',
-					headers: {'Content-Type': 'application/json'},
-					body: JSON.stringify({
-					  reference: response.reference,
-					  user: { name, email, phone, service }
-					})
-				  })
-				.then(r => r.json())
-				.then(data => {
-					console.log("Verify response:", data); 
-				if (data.success) {
-					paymentMessage.classList.remove('hidden');
-				  paymentMessageText.textContent = '✅ Payment confirmed! Redirecting you to our Telegram...';
-				  
-				  // Wait 2 seconds before redirect
-				  setTimeout(() => {
-					if (data.redirect) {
-					  window.location.href = data.redirect;
-					}
-				  }, 2000);
-				} else {
-					paymentMessage.classList.remove('hidden');
-				  paymentMessageText.textContent = 'Verification failed: ' + (data.message || 'Contact support.');
-				}
+<!-- ─── JS ─── -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
 
-				})
+    // ── CUSTOM CURSOR ──
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
+    (function animRing() {
+        rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+        ring.style.left = rx+'px'; ring.style.top = ry+'px';
+        requestAnimationFrame(animRing);
+    })();
+    document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => { cur.style.width='14px'; cur.style.height='14px'; ring.style.width='48px'; ring.style.height='48px'; });
+        el.addEventListener('mouseleave', () => { cur.style.width='8px'; cur.style.height='8px'; ring.style.width='32px'; ring.style.height='32px'; });
+    });
 
-				  .catch(err => {
-					console.error(err);
-					paymentMessage.classList.remove('hidden');
-					paymentMessageText.textContent = 'Verification error. Contact support.';
-				  });
-				},
-				onClose: function(){
-					paymentMessage.classList.remove('hidden');
-				  paymentMessageText.textContent = 'Payment window closed. If you completed payment, please check email or contact support.';
-				}
-			  });
-			  handler.openIframe();
-			});
-            })();
+    // ── HEADER SCROLL ──
+    const hdr = document.getElementById('hdr');
+    window.addEventListener('scroll', () => hdr.classList.toggle('stuck', window.scrollY > 50), { passive: true });
 
-           // Handle Contact Form Submission
-			const contactForm = document.getElementById('contactForm');
-			const contactMessage = document.getElementById('contactMessage');
+    // ── MOBILE MENU ──
+    const mobMenu = document.getElementById('mob-menu');
+    document.getElementById('menu-btn').addEventListener('click', () => mobMenu.classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => mobMenu.classList.remove('open'));
+    document.querySelectorAll('#mob-menu a').forEach(a => a.addEventListener('click', () => mobMenu.classList.remove('open')));
 
-			// Set your contact sheet webhook here
-			const CONTACT_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzh2R08CwoPsCxcnGnWtYk3hGV5YDtD0TDtqmxMoKiwCdikWhM9Wd3uFPdegbDO7EXFZg/exec';
-
-			contactForm.addEventListener('submit', async function(event) {
-				event.preventDefault();
-
-				// Collect form data
-				const formData = {
-					name: contactForm.name.value.trim(),
-					email: contactForm.email.value.trim(),
-					message: contactForm.message.value.trim(),
-					timestamp: new Date().toISOString()
-				};
-
-				try {
-					// Send data to your Contact Google Sheet via Apps Script
-					const response = await fetch(CONTACT_SHEET_WEBHOOK, {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify(formData)
-					});
-
-					const result = await response.json();
-
-					if (result.status === 'success') {
-						contactMessage.textContent = 'Message sent successfully!';
-						contactMessage.classList.remove('hidden');
-						contactForm.reset();
-					} else {
-						contactMessage.textContent = 'Oops! Something went wrong. Try again.';
-						contactMessage.classList.remove('hidden');
-						console.error('Sheet Error:', result.message);
-					}
-
-				} catch (err) {
-					contactMessage.textContent = 'Network error. Please try again later.';
-					contactMessage.classList.remove('hidden');
-					console.error('Fetch Error:', err);
-				}
-
-				setTimeout(() => {
-					contactMessage.classList.add('hidden');
-				}, 5000);
-			});
-
-            // Handle Payment Form Submission
-            const paymentForm = document.getElementById('paymentForm');
-            const paymentMessage = document.getElementById('paymentMessage');
-            if (paymentForm) {
-                paymentForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    paymentMessage.classList.remove('hidden');
-                    // Backend integration with Selar/Paystack here.
-                    paymentForm.reset();
-                    setTimeout(() => {
-                        paymentMessage.classList.add('hidden');
-                    }, 5000); // Hide message after 5 seconds
-                });
-            }
-
-            // Scroll Reveal Animation with IntersectionObserver
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
+    // ── SMOOTH SCROLL ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
         });
-        
-        
-    </script>
+    });
+
+    // ── SCROLL REVEAL ──
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+    // ── BLOG TOGGLES ──
+    document.querySelectorAll('.read-more-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+            const fullContent = document.getElementById(targetId);
+            fullContent.classList.toggle('hidden');
+            if (fullContent.classList.contains('hidden')) {
+                this.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+            } else {
+                this.innerHTML = 'Read Less <i class="fas fa-arrow-up"></i>';
+            }
+        });
+    });
+
+    // ── PAYSTACK ──
+    (function() {
+        const prices = { signals: 500, mentorship: 25000, 'account-management': 100000 };
+        const sel = document.getElementById('service');
+        const pdisp = document.getElementById('priceDisplay');
+        const pform = document.getElementById('paymentForm');
+        const pmsg = document.getElementById('paymentMessage');
+        const pmsgT = document.getElementById('paymentMessageText');
+        const PUBLIC_KEY = "pk_test_836795a935d7048f4b8291936a858f2491e36364";
+        const VERIFY_URL = "https://leadwax-backend.onrender.com/verify-payment";
+
+        sel.addEventListener('change', () => {
+            const p = prices[sel.value] || 0;
+            pdisp.textContent = p ? `₦${p.toLocaleString()}` : '₦0';
+        });
+
+        pform.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = sel.value;
+            if (!name || !email || !service) { alert('Please fill in your name, email, and select a service.'); return; }
+            const amountNGN = prices[service];
+            if (!amountNGN) { alert('Please select a valid service.'); return; }
+            pmsg.classList.remove('hidden'); pmsgT.textContent = 'Opening secure payment...';
+            const handler = PaystackPop.setup({
+                key: PUBLIC_KEY, email, amount: amountNGN * 100, currency: "NGN",
+                metadata: { custom_fields: [
+                    { display_name: "Full Name", variable_name: "full_name", value: name },
+                    { display_name: "Phone", variable_name: "phone", value: phone || '' }
+                ]},
+                callback: function(response) {
+                    pmsgT.textContent = 'Verifying payment...';
+                    fetch(VERIFY_URL, {
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ reference: response.reference, user: { name, email, phone, service } })
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.success) {
+                            pmsgT.textContent = '✓ Payment confirmed. Redirecting to Telegram...';
+                            setTimeout(() => { if (data.redirect) window.location.href = data.redirect; }, 2000);
+                        } else {
+                            pmsgT.textContent = 'Verification failed: ' + (data.message || 'Contact support.');
+                            pmsg.classList.add('msg-err');
+                        }
+                    })
+                    .catch(() => { pmsgT.textContent = 'Error verifying. Please contact support.'; });
+                },
+                onClose: function() {
+                    pmsgT.textContent = 'Payment window closed. Contact support if you completed payment.';
+                }
+            });
+            handler.openIframe();
+        });
+    })();
+
+    // ── CONTACT FORM ──
+    const cform = document.getElementById('contactForm');
+    const cmsg = document.getElementById('contactMessage');
+    const WEBHOOK = 'https://script.google.com/macros/s/AKfycbzh2R08CwoPsCxcnGnWtYk3hGV5YDtD0TDtqmxMoKiwCdikWhM9Wd3uFPdegbDO7EXFZg/exec';
+
+    cform.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = { name: cform.name.value.trim(), email: cform.email.value.trim(), message: cform.message.value.trim(), timestamp: new Date().toISOString() };
+        try {
+            const r = await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            const result = await r.json();
+            cmsg.classList.remove('hidden');
+            if (result.status === 'success') { cform.reset(); }
+            else { cmsg.querySelector('p').textContent = 'Something went wrong. Please try again.'; cmsg.classList.add('msg-err'); }
+        } catch { cmsg.classList.remove('hidden'); cmsg.querySelector('p').textContent = 'Network error. Please try again.'; }
+        setTimeout(() => cmsg.classList.add('hidden'), 5000);
+    });
+
+});
+</script>
 </body>
 </html>
